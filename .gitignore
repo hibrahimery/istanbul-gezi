@@ -1,0 +1,7 @@
+# Sadece yayinlanacak dosyalar
+/*
+!/index.html
+!/.gitignore
+!/anlatim/
+/anlatim/*
+!/anlatim/gorseller/
