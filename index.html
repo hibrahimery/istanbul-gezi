@@ -389,6 +389,15 @@
       border: 1px dashed rgba(245, 158, 11, 0.3);
     }
 
+    .m-transit {
+      font-size: 0.73rem;
+      color: #a5f3fc;
+      background: rgba(6, 182, 212, 0.08);
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px dashed rgba(6, 182, 212, 0.35);
+    }
+
     .m-actions {
       display: flex;
       gap: 8px;
@@ -754,7 +763,7 @@
   <!-- MOBİL UYUMLU YEMEK SEÇİM MODALI -->
   <div class="modal-overlay" id="food-modal">
     <div class="modal-header">
-      <div style="font-weight:700; color:#fbbf24; font-size:0.95rem;">🍽️ Yemek Noktaları Karar Listesi (Y1–Y38)</div>
+      <div style="font-weight:700; color:#fbbf24; font-size:0.95rem;">🍽️ Yemek Noktaları Karar Listesi (Y1–Y41)</div>
       <button class="size-btn" style="font-size:0.85rem; padding:5px 10px;" onclick="closeFoodModal()">✕ Kapat</button>
     </div>
     <div class="modal-body" id="food-modal-body"></div>
@@ -772,49 +781,49 @@
     // 1. SAF GEZİ ROTASI VERİ SETİ (aragon-plan-v2.md)
     // ============================================================================
     const SIGHT_POIS = [
-      { id: "s_0", day: "0", order: 0, tier: "Çekirdek", name: "Topkapı Otel Üssü", lat: 41.0185, lng: 28.9238, category: "Konaklama", time: "Her Gün 07:30", desc: "Topkapı T1 Tramvay ve M1A Metro kesişimi. 5 gecelik konaklama üssü.", nearFood: "Y1 Lokum Piliç (Şirinevler), Y2 Merkezefendi Köftecisi", color: "var(--day0-color)" },
+      { id: "s_0", day: "0", order: 0, tier: "Çekirdek", name: "Topkapı Otel Üssü", lat: 41.0185, lng: 28.9238, category: "Konaklama", time: "Her Gün 07:30", desc: "Topkapı T1 Tramvay ve M1A Metro kesişimi. Konaklama üssü; 31 Ekim sabahı check-out (son gece Anadolu Yakası'nda).", nearFood: "Y1 Lokum Piliç (Şirinevler), Y2 Merkezefendi Köftecisi", color: "var(--day0-color)" },
 
       // 1. GÜN: 28 EKİM ÇARŞAMBA
-      { id: "s_1_1", day: "1", order: 1, tier: "Çekirdek", name: "Ayasofya-i Kebir Camii, III. Ahmet Çeşmesi & Bab-ı Hümayun", lat: 41.0086, lng: 28.9802, category: "Cami", time: "07:50 – 08:55", desc: "Kesin #3: Sabah erken saatte sıfır kuyrukla Ayasofya alt kat (ücretsiz) ziyareti, Omphalion, Terleyen Sütun ve III. Ahmet Çeşmesi.", nearFood: "Y5 Sultanahmet Köftecisi, Y3 Filibe Köftecisi", color: "var(--day1-color)" },
-      { id: "s_1_2", day: "1", order: 2, tier: "Çekirdek", name: "Topkapı Sarayı Müzesi", lat: 41.0115, lng: 28.9833, category: "Tarih & Müze", time: "09:00 – 12:00", desc: "Kesin #38: Saat 09:00 açılışında Müzekart ile giriş. Bab-ı Selam, Divan-ı Hümayun & Adalet Kulesi, Kutsal Emanetler, İftariye Kameriyesi.", nearFood: "Çıkışta Sirkeci/Sultanahmet öğle yemeği (Y3, Y4, Y5)", color: "var(--day1-color)" },
-      { id: "s_1_3", day: "1", order: 3, tier: "Çekirdek", name: "Alman Çeşmesi, Dikilitaş & Yılanlı Sütun", lat: 41.0062, lng: 28.9756, category: "Tarih & Müze", time: "12:00 – 12:30", desc: "Kesin #2 & #8: Antik Hipodrom üzerindeki 3500 yıllık Dikilitaş, Yılanlı Sütun ve altın mozaikli Alman Çeşmesi.", nearFood: "Y5 Sultanahmet Köftecisi (1 dk)", color: "var(--day1-color)" },
-      { id: "s_1_4", day: "1", order: 4, tier: "Çekirdek", name: "Sultanahmet Camii (Mavi Cami)", lat: 41.0054, lng: 28.9768, category: "Cami", time: "12:30 – 13:15", desc: "Kesin #31: 6 minareli, 21 bin İznik çinili mabet ziyareti ve öğle namazı. (Çıkışta 13:15 Öğle Yemeği).", nearFood: "Öğle Adayları: Y3 Filibe Köftecisi, Y4 Hocapaşa Pidecisi", color: "var(--day1-color)" },
-      { id: "s_1_5", day: "1", order: 5, tier: "Çekirdek", name: "Yerebatan Sarnıcı", lat: 41.0084, lng: 28.9779, category: "Tarih & Müze", time: "14:15 – 15:15", desc: "Kesin #43: Online biletle hızlı giriş. 336 sütunlu su sarayı, Ağlayan Sütun ve iki Medusa Başı.", nearFood: "Sirkeci Hocapaşa sokağına 4 dk (Y3, Y4)", color: "var(--day1-color)" },
-      { id: "s_1_6", day: "1", order: 6, tier: "Çekirdek", name: "Gülhane Parkı, Gotlar Sütunu & Sarayburnu", lat: 41.0132, lng: 28.9815, category: "Park", time: "15:15 – 16:30", desc: "Olabilir #17: Asırlık çınarlar altında düz asfalt yürüyüş (pusette çocuk uykusu), Gotlar Sütunu ve Sarayburnu.", nearFood: "Gülhane girişinde Y3 Filibe Köftecisi & Y4 Hocapaşa Pidecisi", color: "var(--day1-color)" },
-      { id: "s_1_7", day: "1", order: 7, tier: "Çekirdek", name: "Tarihi Ali Muhiddin Hacı Bekir (1777 - Bahçekapı / Sirkeci)", lat: 41.0152, lng: 28.9738, category: "Tarihi Şekerci & Hediyelik", time: "16:30 – 17:15", desc: "Kesin #45: Gülhane çıkışından Sirkeci sokaklarında 5 dk yürüyüş. Türkiye'nin en eski işletmesinden (1777) akşamki akraba ziyaretleri için hediyelik lokum & akide şekeri alımı.", nearFood: "Tam Noktada: Y6 Tarihi Ali Muhiddin Hacı Bekir (Hamidiye Cd. No:33)", color: "var(--day1-color)" },
+      { id: "s_1_1", day: "1", order: 1, tier: "Çekirdek", name: "Ayasofya-i Kebir Camii, III. Ahmet Çeşmesi & Bab-ı Hümayun", lat: 41.0086, lng: 28.9802, category: "Cami", time: "07:50 – 08:55", desc: "Kesin #3: Sabah erken saatte sıfır kuyrukla Ayasofya alt kat (ücretsiz) ziyareti, Omphalion, Terleyen Sütun ve III. Ahmet Çeşmesi.", nearFood: "Y5 Sultanahmet Köftecisi, Y3 Filibe Köftecisi", transit: "🚋 Otelden T1 Tramvayı → Sultanahmet durağı (~20 dk)", color: "var(--day1-color)" },
+      { id: "s_1_2", day: "1", order: 2, tier: "Çekirdek", name: "Topkapı Sarayı Müzesi", lat: 41.0115, lng: 28.9833, category: "Tarih & Müze", time: "09:00 – 12:00", desc: "Kesin #38: Saat 09:00 açılışında Müzekart ile giriş. Bab-ı Selam, Divan-ı Hümayun & Adalet Kulesi, Kutsal Emanetler, İftariye Kameriyesi.", nearFood: "Çıkışta Sirkeci/Sultanahmet öğle yemeği (Y3, Y4, Y5)", transit: "🚶 Ayasofya arkasından Bab-ı Hümayun'a yürüyerek (~5 dk)", color: "var(--day1-color)" },
+      { id: "s_1_3", day: "1", order: 3, tier: "Çekirdek", name: "Alman Çeşmesi, Dikilitaş & Yılanlı Sütun", lat: 41.0062, lng: 28.9756, category: "Tarih & Müze", time: "12:00 – 12:30", desc: "Kesin #2 & #8: Antik Hipodrom üzerindeki 3500 yıllık Dikilitaş, Yılanlı Sütun ve altın mozaikli Alman Çeşmesi.", nearFood: "Y5 Sultanahmet Köftecisi (1 dk)", transit: "🚶 Saraydan Sultanahmet Meydanı'na yürüyerek (~10 dk)", color: "var(--day1-color)" },
+      { id: "s_1_4", day: "1", order: 4, tier: "Çekirdek", name: "Sultanahmet Camii (Mavi Cami)", lat: 41.0054, lng: 28.9768, category: "Cami", time: "12:30 – 13:15", desc: "Kesin #31: 6 minareli, 21 bin İznik çinili mabet ziyareti ve öğle namazı. (Çıkışta 13:15 Öğle Yemeği).", nearFood: "Öğle Adayları: Y3 Filibe Köftecisi, Y4 Hocapaşa Pidecisi", transit: "🚶 Meydanın hemen yanı, yürüyerek (~2 dk)", color: "var(--day1-color)" },
+      { id: "s_1_5", day: "1", order: 5, tier: "Çekirdek", name: "Yerebatan Sarnıcı", lat: 41.0084, lng: 28.9779, category: "Tarih & Müze", time: "14:15 – 15:15", desc: "Kesin #43: Online biletle hızlı giriş. 336 sütunlu su sarayı, Ağlayan Sütun ve iki Medusa Başı.", nearFood: "Sirkeci Hocapaşa sokağına 4 dk (Y3, Y4)", transit: "🚶 Sultanahmet Meydanı'ndan yürüyerek (~5 dk)", color: "var(--day1-color)" },
+      { id: "s_1_6", day: "1", order: 6, tier: "Çekirdek", name: "Gülhane Parkı, Gotlar Sütunu & Sarayburnu", lat: 41.0132, lng: 28.9815, category: "Park", time: "15:15 – 16:30", desc: "Olabilir #17: Asırlık çınarlar altında düz asfalt yürüyüş (pusette çocuk uykusu), Gotlar Sütunu ve Sarayburnu.", nearFood: "Gülhane girişinde Y3 Filibe Köftecisi & Y4 Hocapaşa Pidecisi", transit: "🚶 Yerebatan'dan Alemdar Cd. ile Gülhane'ye yürüyerek (~10 dk)", color: "var(--day1-color)" },
+      { id: "s_1_7", day: "1", order: 7, tier: "Çekirdek", name: "Tarihi Ali Muhiddin Hacı Bekir (1777 - Bahçekapı / Sirkeci)", lat: 41.0152, lng: 28.9738, category: "Tarihi Şekerci & Hediyelik", time: "16:30 – 17:15", desc: "Kesin #45: Gülhane çıkışından Sirkeci sokaklarında 5 dk yürüyüş. Türkiye'nin en eski işletmesinden (1777) akşamki akraba ziyaretleri için hediyelik lokum & akide şekeri alımı.", nearFood: "Tam Noktada: Y6 Tarihi Ali Muhiddin Hacı Bekir (Hamidiye Cd. No:33)", transit: "🚶 Gülhane alt kapısından Sirkeci'ye yürüyerek (~5 dk) • Dönüş: 🚋 Sirkeci'den T1 ile otele", color: "var(--day1-color)" },
 
-      // 2. GÜN: 29 EKİM PERŞEMBE
-      { id: "s_2_1", day: "2", order: 1, tier: "Çekirdek", name: "Atatürk Arboretumu (Bahçeköy / Belgrad Ormanı)", lat: 41.1764, lng: 28.9854, category: "Doğa & Arboretum", time: "08:30 – 10:30", desc: "Kesin #11: Saat 08:30 açılışında yağmurluklu/şemsiyeli sonbahar yürüyüşü! 2000+ bitki türü, göletler, kızıl sığla ağaçları ve 1818 Kirazlıbent. (Puset serbest; yiyecek ve Globber yasak).", nearFood: "Çıkışta Eyüp Pierre Loti Kahvesi (Y7)", color: "var(--day2-color)" },
-      { id: "s_2_2", day: "2", order: 2, tier: "Çekirdek", name: "Eyüp Sultan Camii ve Türbesi", lat: 41.0478, lng: 28.9340, category: "Cami", time: "08:30 / 10:45 – 11:30", desc: "Kesin #12: Ebu Eyyûb el-Ensârî Türbesi ve manevi avlu ziyareti.", nearFood: "Üstünde: Y7 Tarihi Pierre Loti Kahvesi", color: "var(--day2-color)" },
-      { id: "s_2_3", day: "2", order: 3, tier: "Çekirdek", name: "Pierre Loti Tepesi & Teleferik", lat: 41.0538, lng: 28.9338, category: "Tarih & Manzara", time: "11:30 – 12:15", desc: "Kesin #28: Teleferik (veya araçla arka otopark) ile Haliç panoraması. (Çıkışta 12:15 Öğle Yemeği).", nearFood: "Y7 Pierre Loti Kahvesi | Aşağıda: Y8 Forno Balat, Y9 Albayın Yeri", color: "var(--day2-color)" },
-      { id: "s_2_4", day: "2", order: 4, tier: "Çekirdek", name: "Sveti Stefan Demir Kilisesi", lat: 41.0318, lng: 28.9498, category: "Tarih & Müze", time: "13:15 – 13:45", desc: "Kesin #33: Haliç kıyısında tamamı dökme demirden üretilmiş dünyadaki tek prefabrik demir kilise.", nearFood: "200m yanında: Y8 Forno Balat, Y9 Albayın Yeri, Y10 Taş Fırın", color: "var(--day2-color)" },
-      { id: "s_2_5", day: "2", order: 5, tier: "Opsiyonel", name: "Fener Rum Patrikhanesi & Balat Sokakları", lat: 41.0292, lng: 28.9522, category: "Tarih & Sokak", time: "13:45 – 14:30", desc: "Olabilir #4 & #14 [Opsiyonel]: Patrikhane, Kiremit Caddesi cumbalı evler ve Merdivenli Yokuş.", nearFood: "Y8 Forno Balat, Y9 Albayın Yeri, Y10 Tarihi Taş Fırın (1923)", color: "var(--day2-color)" },
-      { id: "s_2_6", day: "2", order: 6, tier: "Çekirdek", name: "Rahmi M. Koç Müzesi (Hasköy)", lat: 41.0422, lng: 28.9497, category: "Tarih & Müze", time: "14:30 – 18:00", desc: "Kesin #29: Yağmur kalkanı dev kapalı müze! Buharlı trenler, Saltanat Vagonu, uçaklar, klasik arabalar.", nearFood: "İçinde: Y11 Halat | Çıkışta (18:00): Y12 Sezai Usta Pide (Cibali)", color: "var(--day2-color)" },
+      // 2. GÜN: 29 EKİM PERŞEMBE (araç günü)
+      { id: "s_2_1", day: "2", order: 1, tier: "Çekirdek", name: "Atatürk Arboretumu (Bahçeköy / Belgrad Ormanı)", lat: 41.1764, lng: 28.9854, category: "Doğa & Arboretum", time: "09:00 – 10:30", desc: "Kesin #11: 09:00 açılışında yağmurluk ve şemsiyeyle sonbahar yürüyüşü (Pazartesi kapalı). Bilet online satılıyor, Müzekart geçmiyor. İçeri sudan başka yiyecek-içecek alınmıyor: kahvaltıyı girmeden yapın, atıştırmalıkları arabada bırakın. Patikalar ıslak olabilir, su geçirmez ayakkabı giyin. Globber bagajda kalsın.", nearFood: "İçeride yemek yok • Sonraki durakta öğle: Y11 Halat (Rahmi Koç içi)", transit: "🚗 Otelden araçla ~40–45 dk. Tören kapanışları (~12:30'a kadar) nedeniyle Vatan Cd., Edirnekapı ve Fevzipaşa yönüne girmeden TEM'e çıkın; yola çıkmadan Google/Yandex'ten kontrol edin. Kapı önünde otopark.", color: "var(--day2-color)" },
+      { id: "s_2_2", day: "2", order: 2, tier: "Çekirdek", name: "Rahmi M. Koç Müzesi (Hasköy)", lat: 41.0422, lng: 28.9497, category: "Tarih & Müze", time: "11:10 – 13:30", desc: "Kesin #29: Yağışın en yoğun olduğu 10–12 arası araçta ve müzede geçer. Hafta içi 09:30–17:00 açık (29 Ekim saatini sabah teyit edin). Bayram kalabalığı öğleden sonra artar, erken girmek avantaj. Saltanat Vagonu, Fenerbahçe Vapuru, trenler, uçaklar. Öğle yemeği müze içindeki Halat'ta.", nearFood: "İçinde: Y11 Halat Restoran (öğle yemeği)", transit: "🚗 Bahçeköy'den araçla ~35–40 dk (Hasköy)", color: "var(--day2-color)" },
+      { id: "s_2_3", day: "2", order: 3, tier: "Çekirdek", name: "Eyüp Sultan Camii ve Türbesi", lat: 41.0478, lng: 28.9340, category: "Cami", time: "13:45 – 14:45", desc: "Kesin #12: Ebu Eyyûb el-Ensârî Türbesi ve manevi avlu ziyareti. Bayram günü kalabalık olur; aracı bir kez park edip cami, türbe ve teleferiği yürüyerek yapın.", nearFood: "Tepede: Y7 Tarihi Pierre Loti Kahvesi", transit: "🚗 Hasköy'den Haliç kıyısıyla araçla ~10 dk. Eyüp meydanı/sahil çevresindeki otoparka park edin", color: "var(--day2-color)" },
+      { id: "s_2_4", day: "2", order: 4, tier: "Opsiyonel", name: "Pierre Loti Tepesi & Teleferik", lat: 41.0538, lng: 28.9338, category: "Tarih & Manzara", time: "14:45 – 15:15", desc: "Kesin #28 [Opsiyonel – kuyruğa göre]: Haliç panoraması ve sıcak çay molası. Bayramda teleferik kuyruğu uzunsa araçla tepe otoparkına çıkın ya da bu durağı atlayın.", nearFood: "Tepede: Y7 Pierre Loti Kahvesi", transit: "🚶 Camiden sahildeki TF2 Teleferik istasyonuna yürüyerek (~5 dk) → 🚡 TF2 Teleferik ile çıkış ve iniş (İstanbulkart). Alternatif: 🚗 araçla tepe otoparkı", color: "var(--day2-color)" },
+      { id: "s_2_5", day: "2", order: 5, tier: "Opsiyonel", name: "Fener Rum Patrikhanesi", lat: 41.0292, lng: 28.9522, category: "Tarih & Müze", time: "15:30 – 16:00", desc: "Olabilir #14 [Opsiyonel]: Kaynaklara göre 16:00 ya da 17:00'de kapanıyor; bu yüzden Demir Kilise'den önce. Kapalı orta kapı (1821) ve Aya Yorgi Kilisesi. Saat 15:30'u geçtiyse doğrudan Demir Kilise'ye gidin.", nearFood: "Y8 Forno Balat, Y9 Albayın Yeri, Y10 Taş Fırın", transit: "🚗 Eyüp'ten Haliç sahil yoluyla araçla ~10 dk. Fener/Balat sahilindeki otoparka park edin; buradan sonrası yürüyerek", color: "var(--day2-color)" },
+      { id: "s_2_6", day: "2", order: 6, tier: "Çekirdek", name: "Sveti Stefan Demir Kilisesi", lat: 41.0318, lng: 28.9498, category: "Tarih & Müze", time: "16:00 – 16:30", desc: "Kesin #33: Haliç kıyısında tamamı dökme demirden üretilmiş prefabrik kilise. Her gün 09:00–17:00 açık, giriş ücretsiz.", nearFood: "200 m yanında: Y8 Forno Balat, Y9 Albayın Yeri, Y10 Taş Fırın", transit: "🚶 Patrikhane'den sahil boyunca yürüyerek (~5 dk, 300 m düz yol)", color: "var(--day2-color)" },
+      { id: "s_2_7", day: "2", order: 7, tier: "Opsiyonel", name: "Balat Sokakları (Kiremit Caddesi)", lat: 41.0296, lng: 28.9472, category: "Tarih & Sokak", time: "16:30 – 17:30", desc: "Olabilir #4 [Opsiyonel – yorulursak ilk kesilecek]: Renkli cumbalı evler ve Kırmızı Mektep manzarası. Yokuşlu, puset zorlanabilir. Gün batımı 18:00.", nearFood: "Y8 Forno Balat, Y9 Albayın Yeri, Y10 Taş Fırın • Dönüşte akşam: Y12 Sezai Usta Pide (Cibali)", transit: "🚶 Demir Kilise'den yürüyerek (~5 dk). Dönüş: 🚗 araçla otele ~15–20 dk (Edirnekapı üzerinden; tören yolları bu saatte açık)", color: "var(--day2-color)" },
 
-      // 3. GÜN
-      { id: "s_3_1", day: "3", order: 1, tier: "Opsiyonel", name: "Fatih Camii ve Külliyesi", lat: 41.0196, lng: 28.9498, category: "Cami", time: "08:00 – 08:50", desc: "Olabilir #13 [Opsiyonel]: Fatih Sultan Mehmet Türbesi ve fethin ilk selatin külliyesi.", nearFood: "Y19 Mini Tuşba Meze Evi", color: "var(--day3-color)" },
-      { id: "s_3_2", day: "3", order: 2, tier: "Opsiyonel", name: "Molla Zeyrek Camii (Pantokrator)", lat: 41.0197, lng: 28.9572, category: "Cami", time: "08:50 – 09:40", desc: "Olabilir #26 [Opsiyonel]: Ayasofya'dan sonra İstanbul'daki en büyük Doğu Roma mirası.", nearFood: "Vefa/Süleymaniye mekanları (Y13, Y14)", color: "var(--day3-color)" },
-      { id: "s_3_3", day: "3", order: 3, tier: "Çekirdek", name: "Süleymaniye Camii ve Külliyesi", lat: 41.0163, lng: 28.9642, category: "Cami", time: "09:40 – 11:15", desc: "Kesin #32: Cuma kısıtlaması (11:30) başlamadan Sinan'ın kalfalık eseri, İs Odası, Kanuni & Hürrem türbeleri.", nearFood: "Tam Karşısında (1 dk): Y13 Erzincanlı Ali Baba Kuru Fasulye!", color: "var(--day3-color)" },
-      { id: "s_3_4", day: "3", order: 4, tier: "Çekirdek", name: "Şehzade Camii ve Türbeleri", lat: 41.0140, lng: 28.9576, category: "Cami", time: "11:15 – 12:00", desc: "Kesin #34: Sinan'ın 'çıraklık eserim' dediği mabet ve Şehzade Mehmet Türbesi. (12:00 Öğle Yemeği & Cuma).", nearFood: "Tam Yanında: Y14 Tarihi Vefa Bozacısı (1876) ve Y13 Ali Baba", color: "var(--day3-color)" },
-      { id: "s_3_5", day: "3", order: 5, tier: "Çekirdek", name: "Kapalıçarşı (Grand Bazaar)", lat: 41.0107, lng: 28.9680, category: "Çarşı & Pazar", time: "13:45 – 15:45", desc: "Kesin #19: Yağmurdan korunaklı 4000 dükkan; Cevahir Bedesteni, Sandal Bedesteni ve hanlar.", nearFood: "Arkası: Y15 Day Day Pastanesi | Çıkışta: Y16 Özkan Köftecisi", color: "var(--day3-color)" },
-      { id: "s_3_6", day: "3", order: 6, tier: "Çekirdek", name: "Uzunçarşı Caddesi & Tahtakale Hanları", lat: 41.0145, lng: 28.9695, category: "Tarih & Çarşı", time: "15:45 – 16:40", desc: "Kesin #39: Mercan kapısından Eminönü'ne doğru kesintisiz yokuş aşağı tarihi ticaret omurgası.", nearFood: "Tam Caddede: Y16 Özkan Köftecisi, Y17 Kuveloğlu Han Pide, Y18 Altan Şekerleme", color: "var(--day3-color)" },
-      { id: "s_3_7", day: "3", order: 7, tier: "Opsiyonel", name: "Rüstem Paşa Camii (Tahtakale)", lat: 41.0177, lng: 28.9693, category: "Cami", time: "16:40 – 17:15", desc: "Olabilir #30 [Opsiyonel]: Dünyanın en nadide İznik lale çinileriyle bezeli Mimar Sinan camisi.", nearFood: "100m Yanında: Y18 Altan Şekerleme (1865), Y17 Kuveloğlu Han Pide", color: "var(--day3-color)" },
+      // 3. GÜN: 30 EKİM CUMA (tramvay + yürüyüş)
+      { id: "s_3_1", day: "3", order: 1, tier: "Opsiyonel", name: "Fatih Camii ve Külliyesi", lat: 41.0196, lng: 28.9498, category: "Cami", time: "08:00 – 08:50", desc: "Olabilir #13 [Opsiyonel]: Fatih Sultan Mehmet Türbesi ve fethin ilk selatin külliyesi. Yağmur varsa Fatih–Zeyrek atlanır, taksiyle doğrudan Süleymaniye'ye geçilir.", nearFood: "Y19 Mini Tuşba Meze Evi", transit: "🚕 Otelden taksiyle ya da Fevzipaşa Cd. üzerinden İETT otobüsüyle (~10 dk)", color: "var(--day3-color)" },
+      { id: "s_3_2", day: "3", order: 2, tier: "Opsiyonel", name: "Molla Zeyrek Camii (Pantokrator)", lat: 41.0197, lng: 28.9572, category: "Cami", time: "08:50 – 09:40", desc: "Olabilir #26 [Opsiyonel]: Ayasofya'dan sonra İstanbul'daki en büyük Doğu Roma mirası.", nearFood: "Vefa/Süleymaniye mekanları (Y13, Y14)", transit: "🚶 Fatih Camii'nden yürüyerek (~10 dk, hafif yokuş aşağı)", color: "var(--day3-color)" },
+      { id: "s_3_3", day: "3", order: 3, tier: "Çekirdek", name: "Süleymaniye Camii ve Külliyesi", lat: 41.0163, lng: 28.9642, category: "Cami", time: "09:40 – 11:15", desc: "Kesin #32: Cuma kısıtlaması (11:30) başlamadan Sinan'ın kalfalık eseri, İs Odası, Kanuni & Hürrem türbeleri.", nearFood: "Tam Karşısında (1 dk): Y13 Erzincanlı Ali Baba Kuru Fasulye!", transit: "🚶 Zeyrek'ten Bozdoğan Kemeri yanından yürüyerek (~15 dk, hafif yokuş) • Fatih–Zeyrek atlandıysa: 🚕 otelden taksiyle ~15 dk", color: "var(--day3-color)" },
+      { id: "s_3_4", day: "3", order: 4, tier: "Çekirdek", name: "Şehzade Camii ve Türbeleri", lat: 41.0140, lng: 28.9576, category: "Cami", time: "11:15 – 12:00", desc: "Kesin #34: Sinan'ın 'çıraklık eserim' dediği mabet ve Şehzade Mehmet Türbesi. (12:00 Öğle Yemeği & Cuma).", nearFood: "Tam Yanında: Y14 Tarihi Vefa Bozacısı (1876) ve Y13 Ali Baba", transit: "🚶 Süleymaniye'den Vefa üzerinden yürüyerek (~7 dk)", color: "var(--day3-color)" },
+      { id: "s_3_5", day: "3", order: 5, tier: "Çekirdek", name: "Kapalıçarşı (Grand Bazaar)", lat: 41.0107, lng: 28.9680, category: "Çarşı & Pazar", time: "13:45 – 15:45", desc: "Kesin #19: Yağmurdan korunaklı 4000 dükkan; Cevahir Bedesteni, Sandal Bedesteni ve hanlar.", nearFood: "Arkası: Y15 Day Day Pastanesi | Çıkışta: Y16 Özkan Köftecisi", transit: "🚶 Şehzadebaşı'ndan Beyazıt Meydanı üzerinden yürüyerek (~15 dk)", color: "var(--day3-color)" },
+      { id: "s_3_6", day: "3", order: 6, tier: "Çekirdek", name: "Uzunçarşı Caddesi & Tahtakale Hanları", lat: 41.0145, lng: 28.9695, category: "Tarih & Çarşı", time: "15:45 – 16:40", desc: "Kesin #39: Mercan kapısından Eminönü'ne doğru kesintisiz yokuş aşağı tarihi ticaret omurgası.", nearFood: "Tam Caddede: Y16 Özkan Köftecisi, Y17 Kuveloğlu Han Pide, Y18 Altan Şekerleme", transit: "🚶 Kapalıçarşı'dan Uzunçarşı Caddesi boyunca yokuş aşağı yürüyerek (~15 dk)", color: "var(--day3-color)" },
+      { id: "s_3_7", day: "3", order: 7, tier: "Opsiyonel", name: "Rüstem Paşa Camii (Tahtakale)", lat: 41.0177, lng: 28.9693, category: "Cami", time: "16:40 – 17:15", desc: "Olabilir #30 [Opsiyonel]: Dünyanın en nadide İznik lale çinileriyle bezeli Mimar Sinan camisi.", nearFood: "100m Yanında: Y18 Altan Şekerleme (1865), Y17 Kuveloğlu Han Pide", transit: "🚶 Tahtakale'den yürüyerek (~3 dk). Merdivenli; pusetle nöbetleşe çıkın", color: "var(--day3-color)" },
+      { id: "s_3_8", day: "3", order: 8, tier: "Opsiyonel", name: "Eminönü Yeni Cami & Mısır Çarşısı", lat: 41.0167, lng: 28.9708, category: "Cami & Çarşı", time: "17:15 – 18:00", desc: "Kesin #10 & #24 (Cumartesi'den taşındı): Yeni Cami ve kapalı Mısır Çarşısı; yağmurdan etkilenmez. Enerji kalmadıysa Cumartesi Boğaz turu öncesi iskelenin karşısında 30 dk ile yapılabilir.", nearFood: "Yanında: Y20 Tarihi Kasımpaşa Börekçisi, Y21 Eminönü Balık-Ekmek, Y39 Hafız Mustafa (Sirkeci)", transit: "🚶 Rüstem Paşa'dan yürüyerek (~3 dk). Dönüş: 🚋 Eminönü'den T1 ile otele (~35 dk)", color: "var(--day3-color)" },
 
-      // 4. GÜN
-      { id: "s_4_1", day: "4", order: 1, tier: "Çekirdek", name: "Eminönü Yeni Cami & Mısır Çarşısı", lat: 41.0167, lng: 28.9708, category: "Cami & Çarşı", time: "08:15 – 09:50", desc: "Kesin #10 & #24: Sabah sakinliğinde Yeni Cami ve kapalı Mısır Çarşısı gezisi.", nearFood: "Yanında: Y20 Tarihi Kasımpaşa Börekçisi, Y21 Eminönü Balık-Ekmek", color: "var(--day4-color)" },
-      { id: "s_4_2", day: "4", order: 2, tier: "Çekirdek", name: "Tam Kapsamlı Boğaz Turu (Eminönü)", lat: 41.0185, lng: 28.9730, category: "Boğaz & Deniz", time: "10:00 – 11:45", desc: "Kesin #5: Dolmabahçe, Ortaköy, Rumeli & Anadolu Hisarı, Küçüksu, Beylerbeyi ve Kız Kulesi'ni gören 1.5 saatlik tur.", nearFood: "İskelede: Y21 Balık-Ekmek | Karşıda: Y22 Karaköy Emin Usta", color: "var(--day4-color)" },
-      { id: "s_4_3", day: "4", order: 3, tier: "Çekirdek", name: "F1 Füniküler ile Taksim Meydanı", lat: 41.0369, lng: 28.9852, category: "Ulaşım & Meydan", time: "11:45 – 12:30", desc: "Olabilir #35: Kabataş'tan F1 Füniküler ile 2.5 dakikada Taksim Meydanı'na çıkış. (12:30 Öğle Molası).", nearFood: "Meydanda: Y23 Kızılkayalar Islak Hamburger!", color: "var(--day4-color)" },
-      { id: "s_4_4", day: "4", order: 4, tier: "Çekirdek", name: "Nostaljik Tramvay & İstiklal Caddesi", lat: 41.0335, lng: 28.9778, category: "Ulaşım & Cadde", time: "13:15 – 14:30", desc: "Olabilir #36: Taksim'den Tünel Meydanı'na T2 Nostaljik Tramvay ve İstiklal Caddesi geçişi.", nearFood: "Cadde Üstünde: Y24 Sabırtaşı İçli Köfte, Y25 Dürümzade", color: "var(--day4-color)" },
-      { id: "s_4_5", day: "4", order: 5, tier: "Çekirdek", name: "Tarihi Tünel (F2) veya Galata Kulesi İnişi", lat: 41.0256, lng: 28.9742, category: "Tarih & Ulaşım", time: "14:30 – 15:20", desc: "Olabilir #16 & #37: Ya Tünel F2 (1875) ile 90 sn'de Karaköy'e iniş ya da Galata Kulesi'nden Karaköy'e yürüyüş.", nearFood: "Karaköy İnişinde: Y22 Balıkçı Emin Usta (Super Mario Balık Dürüm)", color: "var(--day4-color)" },
-      { id: "s_4_6", day: "4", order: 6, tier: "Opsiyonel", name: "Karaköy – Kadıköy Vapuru", lat: 41.0225, lng: 28.9760, category: "Boğaz & Deniz", time: "15:30 – 16:00", desc: "Olabilir #20 [Opsiyonel]: Karaköy İskelesi'nden çay ve martılara simit atarak Kadıköy'e vapur yolculuğu.", nearFood: "İskele Arkası: Y22 Balıkçı Emin Usta", color: "var(--day4-color)" },
-      { id: "s_4_7", day: "4", order: 7, tier: "Opsiyonel", name: "Kadıköy Çarşısı & Moda Sahil Parkı", lat: 40.9808, lng: 29.0235, category: "Park & Sahil", time: "16:00 – 18:00", desc: "Bonus #25 [Opsiyonel]: Kadıköy Tarihi Çarşı'dan Moda Sahil Parkı'na yürüyüş. (18:00 Akşam Yemeği).", nearFood: "Moda & Feneryolu: Y26 Rita Deli/Prob, Y27 Asuman, Y28 La Mora Pizza, Y29 Çiya", color: "var(--day4-color)" },
+      // 4. GÜN: 31 EKİM CUMARTESİ (check-out, araç Sirkeci'de)
+      { id: "s_4_1", day: "4", order: 1, tier: "Çekirdek", name: "Check-out & Sirkeci'de Park (Araç gün boyu burada)", lat: 41.0150, lng: 28.9770, navQuery: "Sirkeci Garı, Fatih, İstanbul", category: "Ulaşım & Otopark", time: "08:30 – 09:00", desc: "Bavullar bagajda, dışarıdan görünmeyecek şekilde. Sirkeci Garı çevresi ya da Sarayburnu sahilindeki otoparklardan birini İSPARK uygulamasından seçin (Tarihi Yarımada'da günlük ücret ~650 TL civarı, teyit edin). Araç Eminönü'ne 5 dk: yorulursanız program istediğiniz yerde kesilir. Yer bulunamazsa B planı: araç otel otoparkında kalır, akşam T1 ile dönülür.", nearFood: "Hızlı kahvaltı: Y39 Hafız Mustafa 1864 (Sirkeci)", transit: "🚗 Otelden araçla ~15–20 dk (Kennedy Cd. sahil yolu)", color: "var(--day4-color)" },
+      { id: "s_4_2", day: "4", order: 2, tier: "Çekirdek", name: "Topkapı Sarayı (2. Ziyaret)", lat: 41.0115, lng: 28.9833, category: "Tarih & Müze", time: "09:15 – 12:00", desc: "Kesin #38: Bu sefer ilk iş Kutsal Emanetler (kuyruk büyümeden), sonra Hazine ve IV. Avlu köşkleri. Müzekart ile ikinci giriş hakkını gişede sorun. Harem Müzekart'a dahil değil (ayrı bilet). Karnınız tok ve puset yanınızda girin.", nearFood: "Çıkışta öğle: Y4 Hocapaşa Pidecisi, Y3 Filibe Köftecisi • İskelede: Y21 Balık-Ekmek", transit: "🚋 Sirkeci'den T1 ile Gülhane (1 durak) + 🚶 Soğukçeşme Sokağı'ndan Bab-ı Hümayun'a ~10 dk. Alternatif: 🚶 Gülhane Parkı içinden yokuş yukarı ~15 dk", color: "var(--day4-color)" },
+      { id: "s_4_3", day: "4", order: 3, tier: "Çekirdek", name: "Boğaz Turu (Eminönü)", lat: 41.0185, lng: 28.9730, category: "Boğaz & Deniz", time: "13:00 – 14:30", desc: "Kesin #5: Kuru ve sakin havada ~1,5 saatlik tur; çocuğun öğle uykusuna denk gelir. Turyol Eminönü'den sık kalkıyor; Şehir Hatları Kısa Boğaz Turu kışın günde tek sefer (saatini iskeleden ya da 444 1 851'den teyit edin). Mısır Çarşısı Cuma görülemediyse turdan önce 30 dk.", nearFood: "İskelede: Y21 Balık-Ekmek • Yanında: Y20 Kasımpaşa Börekçisi", transit: "🚶 Öğle yemeğinden sonra Sirkeci üzerinden Eminönü iskelesine yürüyerek (~10 dk). Topkapı'dan doğrudan: 🚋 T1 Gülhane → Eminönü (2 durak)", color: "var(--day4-color)" },
+      { id: "s_4_4", day: "4", order: 4, tier: "Opsiyonel", name: "F1 Füniküler ile Taksim Meydanı", lat: 41.0369, lng: 28.9852, category: "Ulaşım & Meydan", time: "14:45 – 15:15", desc: "Olabilir #35 [Opsiyonel – yorulursak kes]: Cumhuriyet Anıtı ve Maksem. Yorulduysanız 4.4–4.6 atlanır; Eminönü'nden doğrudan Sirkeci'deki araca dönülür (4.7).", nearFood: "Meydanda: Y23 Kızılkayalar Islak Hamburger", transit: "🚋 Eminönü'den T1 ile Kabataş (4 durak, ~10 dk) → 🚡 F1 Füniküler Kabataş → Taksim (~3 dk)", color: "var(--day4-color)" },
+      { id: "s_4_5", day: "4", order: 5, tier: "Opsiyonel", name: "Nostaljik Tramvay & İstiklal Caddesi", lat: 41.0335, lng: 28.9778, category: "Ulaşım & Cadde", time: "15:15 – 16:00", desc: "Olabilir #36 [Opsiyonel]: Taksim'den Tünel Meydanı'na kırmızı nostaljik tramvay; Galatasaray Lisesi ve St. Antuan Kilisesi. Cumartesi cadde kalabalık olur.", nearFood: "Cadde üstünde: Y24 Sabırtaşı İçli Köfte, Y25 Dürümzade", transit: "🚋 T2 Nostaljik Tramvay Taksim → Tünel. Çalışmıyorsa 🚶 İstiklal boyunca 1,4 km (düz, hafif yokuş aşağı)", color: "var(--day4-color)" },
+      { id: "s_4_6", day: "4", order: 6, tier: "Opsiyonel", name: "Tarihi Tünel (F2) ile Karaköy'e İniş", lat: 41.0256, lng: 28.9742, category: "Tarih & Ulaşım", time: "16:00 – 16:20", desc: "Olabilir #37 [Opsiyonel]: 1875 tarihli, dünyanın en eski ikinci yeraltı raylı sistemiyle 90 saniyede Karaköy. Galata Kulesi'ne Galip Dede Cd. ile inilebilir, ancak Karaköy'e inen merdivenler pusetle zordur.", nearFood: "Karaköy'de: Y40 Karaköy Güllüoğlu, Y22 Balıkçı Emin Usta", transit: "🚡 F2 Tünel Füniküleri Beyoğlu (Tünel Meydanı) → Karaköy (~1,5 dk)", color: "var(--day4-color)" },
+      { id: "s_4_7", day: "4", order: 7, tier: "Çekirdek", name: "Sirkeci – Harem Arabalı Vapuru ile Anadolu Yakası", lat: 41.0160, lng: 28.9805, navQuery: "Sirkeci Harem Arabalı Vapur İskelesi", category: "Boğaz & Deniz", time: "17:00 – 17:45", desc: "Araç vapuru 06:00–21:00 arası sürekli sefer, ~20 dk; araç ücreti ~200 TL (teyit edin). Gün batımı 18:00: vapurdan Kız Kulesi, Haydarpaşa Garı ve Selimiye Kışlası. Sis olursa seferler iptal olabilir; B planı: Kennedy Cd. üzerinden Avrasya Tüneli (ücretli).", nearFood: "Geçmeden önce: Y40 Karaköy Güllüoğlu", transit: "🚋 Karaköy'den T1 ile Sirkeci (2 durak, ~5 dk) ya da 🚶 Galata Köprüsü üzerinden ~20 dk → 🚗 araç → ⛴️ arabalı vapurla Harem'e (~20 dk) → 🚗 Anadolu Yakası", color: "var(--day4-color)" },
 
-      // 5. GÜN
-      { id: "s_5_1", day: "5", order: 1, tier: "Çekirdek", name: "Edirnekapı Mihrimah Sultan Camii", lat: 41.0298, lng: 28.9358, category: "Cami", time: "08:00 – 08:50", desc: "Olabilir #9: Otelden 8 dk. 6. Tepe'de Sinan'ın 161 pencereli en aydınlık camisi.", nearFood: "Edirnekapı sur içi sabah fırınları", color: "var(--day5-color)" },
-      { id: "s_5_2", day: "5", order: 2, tier: "Çekirdek", name: "Kariye Camii (Chora)", lat: 41.0313, lng: 28.9392, category: "Tarih & Müze", time: "09:00 – 10:00", desc: "Kesin #21: Saat 09:00 açılışında dünyaca ünlü altın Doğu Roma mozaik ve freskleri (Ücretsiz).", nearFood: "Kariye Meydanı", color: "var(--day5-color)" },
-      { id: "s_5_3", day: "5", order: 3, tier: "Opsiyonel", name: "Yedikule Hisarı & Altın Kapı", lat: 40.9932, lng: 28.9228, category: "Tarih & Müze", time: "10:15 – 11:15", desc: "Olabilir #42 [Opsiyonel]: Kara Surları boyundan Yedikule'ye geçiş. Altın Kapı ve Fatih'in hisarı.", nearFood: "Yakında: Y2 Merkezefendi Köftecisi", color: "var(--day5-color)" },
-      { id: "s_5_4", day: "5", order: 4, tier: "Çekirdek", name: "Fethi Paşa Korusu, Kuzguncuk & Üryanizade", lat: 41.0355, lng: 29.0295, category: "Park & Cami", time: "12:15 – 14:15", desc: "Olabilir #15 + Bonus #22 & #40: Fethi Paşa Korusu, Kuzguncuk renkli evler/bostan ve ahşap minareli Üryanizade Camii.", nearFood: "Tam Caddede: Y30 Metet Döner, Y31 Hatice Anne, Y32 Kuzguncuk Fırını", color: "var(--day5-color)" },
-      { id: "s_5_5", day: "5", order: 5, tier: "Opsiyonel", name: "Çengelköy Tarihi Çınaraltı & İskelesi", lat: 41.0508, lng: 29.0518, category: "Park & Sahil", time: "14:15 – 15:30", desc: "Olabilir #7 [Opsiyonel]: Boğaz'ın sıfır noktasında tarihi çınar altında çay molası ve otoyoldan Sakarya'ya çıkış!", nearFood: "Y33 Çengelköy Çınaraltı & Börekçisi | Dönüş: Y35 Sakarya Islama Köfte", color: "var(--day5-color)" }
+      // 5. GÜN: 1 KASIM PAZAR (Anadolu Yakası'ndan başlangıç)
+      { id: "s_5_1", day: "5", order: 1, tier: "Çekirdek", name: "Moda Sahil Parkı, Moda İskelesi & Kadıköy Çarşısı", lat: 40.9808, lng: 29.0235, category: "Park & Sahil", time: "09:30 – 12:00", desc: "Bonus #25: Sabah sakinliğinde çocuğun çimlerde koşabileceği deniz kenarı park ve 1917 Moda İskelesi; ardından Moda Caddesi'nden Kadıköy Çarşısı'na. 12:30 öğle yemeği için La Mora'ya (Feneryolu) araçla ~10 dk; açılış saatini teyit edin.", nearFood: "Y26 Rita Deli, Y27 Asuman, Y41 Baylan Pastanesi, Y29 Çiya • Öğle: Y28 La Mora (Feneryolu)", transit: "🚗 Anadolu Yakası'ndaki başlangıç noktanızdan araçla. Moda'da park zor; Kadıköy'deki bir otoparka bırakıp 🚶 yürüyün (Moda ↔ Çarşı ~15 dk)", color: "var(--day5-color)" },
+      { id: "s_5_2", day: "5", order: 2, tier: "Çekirdek", name: "Fethi Paşa Korusu, Kuzguncuk & Üryanizade", lat: 41.0355, lng: 29.0295, category: "Park & Cami", time: "13:45 – 15:00", desc: "Olabilir #15 + Bonus #22 & #40: Fethi Paşa Korusu, Kuzguncuk renkli evler/bostan ve ahşap minareli Üryanizade Camii. Pazar günü Kuzguncuk'ta park yeri zor.", nearFood: "Tam caddede: Y30 Metet Döner, Y31 Hatice Anne, Y32 Kuzguncuk Fırını", transit: "🚗 Feneryolu'ndan araçla ~20–25 dk", color: "var(--day5-color)" },
+      { id: "s_5_3", day: "5", order: 3, tier: "Opsiyonel", name: "Çengelköy Tarihi Çınaraltı & İskelesi", lat: 41.0508, lng: 29.0518, category: "Park & Sahil", time: "15:00 – 15:45", desc: "Olabilir #7 [Opsiyonel – erken dönüş istenirse kes]: Boğaz kıyısında tarihi çınar altında çay molası. Pazar 15:00 sonrası otoyol yoğunlaşır; erken çıkmak isterseniz bu durağı atlayın.", nearFood: "Y33 Çengelköy Çınaraltı & Börekçisi • Dönüş: Y35 Sakarya Islama Köfte", transit: "🚗 Kuzguncuk'tan sahil yoluyla ~6 dk. Çıkış: 🚗 Çamlıca/Ümraniye bağlantısıyla TEM (O-4) → Sakarya", color: "var(--day5-color)" }
     ];
 
     // ============================================================================
@@ -822,17 +831,17 @@
     // ============================================================================
     const FOOD_POIS = [
       { id: "Y1", code: "Y1", dayGroup: "0", groupTitle: "0. Gün / Otel Çevresi", name: "Lokum Piliç (Şirinevler)", lat: 40.9942, lng: 28.8471, nearSight: "Topkapı Otel Üssü (M1A ile 4 durak / Araçla 10 dk)", food: "Odun ateşinde özel soslu yumuşacık çevirme piliç ve fırın patates.", defaultChoice: "Kesin" },
-      { id: "Y2", code: "Y2", dayGroup: "0", groupTitle: "0. Gün / Otel Çevresi", name: "Ahmet Usta Tarihi Merkezefendi Köftecisi", lat: 41.0142, lng: 28.9219, nearSight: "Topkapı Otel Üssü (3-4 dk) & Yedikule Hisarı hattı", food: "1960'lardan beri geleneksel ızgara köfte, piyaz ve manda yoğurdu.", defaultChoice: "Olabilir" },
+      { id: "Y2", code: "Y2", dayGroup: "0", groupTitle: "0. Gün / Otel Çevresi", name: "Ahmet Usta Tarihi Merkezefendi Köftecisi", lat: 41.0142, lng: 28.9219, nearSight: "Topkapı Otel Üssü (3-4 dk)", food: "1960'lardan beri geleneksel ızgara köfte, piyaz ve manda yoğurdu.", defaultChoice: "Olabilir" },
       { id: "Y3", code: "Y3", dayGroup: "1", groupTitle: "1. Gün: Sultanahmet & Sirkeci", name: "Meşhur Filibe Köftecisi (1893)", lat: 41.0135, lng: 28.9772, nearSight: "Topkapı Sarayı, Yerebatan Sarnıcı ve Gülhane Parkı'na 4-5 dk", food: "130 yıllık esnaf köftesi, piyaz ve sıcak irmik helvası.", defaultChoice: "Kesin" },
       { id: "Y4", code: "Y4", dayGroup: "1", groupTitle: "1. Gün: Sultanahmet & Sirkeci", name: "Hocapaşa Pidecisi", lat: 41.0138, lng: 28.9775, nearSight: "Gülhane Parkı girişi ve Yerebatan Sarnıcı'na 4 dk", food: "Taş fırında incecik çıtır Trabzon tereyağlı peynirli/kıymalı pide.", defaultChoice: "Olabilir" },
       { id: "Y5", code: "Y5", dayGroup: "1", groupTitle: "1. Gün: Sultanahmet & Sirkeci", name: "Tarihi Sultanahmet Köftecisi (Selim Usta)", lat: 41.0079, lng: 28.9772, nearSight: "Ayasofya, Yerebatan Sarnıcı ve Sultanahmet Camii'nin tam karşısı", food: "1920'den beri klasik Sultanahmet köftesi ve irmik helvası.", defaultChoice: "Şart Değil" },
       { id: "Y6", code: "Y6", dayGroup: "1", groupTitle: "1. Gün: Sirkeci / Bahçekapı", name: "Tarihi Ali Muhiddin Hacı Bekir (1777 - Merkez)", lat: 41.0152, lng: 28.9738, nearSight: "1. Gün 16:30 Gülhane Parkı çıkışından Sirkeci sokaklarında 5 dk yürüyüş (Hamidiye Cd. No:33)", food: "Türkiye'nin en eski işletmesi (1777); akraba ziyaretlerine hediyelik çifte kavrulmuş lokum, akide şekeri ve badem ezmesi.", defaultChoice: "Kesin" },
-      { id: "Y7", code: "Y7", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Tarihi Pierre Loti Kahvesi", lat: 41.0539, lng: 28.9336, nearSight: "Pierre Loti Tepesi & Teleferik üst istasyonunun tam içi", food: "Haliç manzarasına karşı közde Türk kahvesi, demleme çay, simit.", defaultChoice: "Kesin" },
-      { id: "Y8", code: "Y8", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Forno Balat (Taş Fırın)", lat: 41.0308, lng: 28.9492, nearSight: "Sveti Stefan Demir Kilise ve Fener Rum Patrikhanesi'ne 3 dk", food: "Taş fırında çıtır lahmacun, pide ve mini pizzalar.", defaultChoice: "Olabilir" },
-      { id: "Y9", code: "Y9", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Albayın Yeri (Balat Ev Yemekleri)", lat: 41.0315, lng: 28.9482, nearSight: "Balat Vodina Caddesi & Kiremit Caddesi renkli evler yanı", food: "Sulu ev yemekleri, çorba ve taze lahmacun.", defaultChoice: "Olabilir" },
-      { id: "Y10", code: "Y10", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Tarihi Taş Fırın Evin (1923) & Sago Dondurma", lat: 41.0322, lng: 28.9478, nearSight: "Balat Çarşısı yürüyüş sokağı üstü", food: "100 yıllık odun fırınından susamlı galeta, gevrek ve doğal dondurma.", defaultChoice: "Olabilir" },
-      { id: "Y11", code: "Y11", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Halat by Divan / Café du Levant", lat: 41.0419, lng: 28.9494, nearSight: "Rahmi M. Koç Müzesi'nin tam içinde (Hasköy)", food: "Müze gezisi sırasında yağmurdan korunaklı yemek ve kahve.", defaultChoice: "Olabilir" },
-      { id: "Y12", code: "Y12", dayGroup: "2", groupTitle: "2. Gün: Eyüp & Balat & Hasköy", name: "Karadeniz Pide Salonu (Sezai Usta - Cibali)", lat: 41.0232, lng: 28.9535, nearSight: "2. Gün Rahmi Koç dönüşü Haliç kıyısı / 3. Gün Süleymaniye altı", food: "Hakiki Trabzon tereyağlı, kavurmalı ve peynirli taş fırın pidesi.", defaultChoice: "Kesin" },
+      { id: "Y7", code: "Y7", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Tarihi Pierre Loti Kahvesi", lat: 41.0539, lng: 28.9336, nearSight: "Pierre Loti Tepesi & Teleferik üst istasyonunun tam içi", food: "Haliç manzarasına karşı közde Türk kahvesi, demleme çay, simit.", defaultChoice: "Kesin" },
+      { id: "Y8", code: "Y8", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Forno Balat (Taş Fırın)", lat: 41.0308, lng: 28.9492, nearSight: "Sveti Stefan Demir Kilise ve Fener Rum Patrikhanesi'ne 3 dk", food: "Taş fırında çıtır lahmacun, pide ve mini pizzalar.", defaultChoice: "Olabilir" },
+      { id: "Y9", code: "Y9", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Albayın Yeri (Balat Ev Yemekleri)", lat: 41.0315, lng: 28.9482, nearSight: "Balat Vodina Caddesi & Kiremit Caddesi renkli evler yanı", food: "Sulu ev yemekleri, çorba ve taze lahmacun.", defaultChoice: "Olabilir" },
+      { id: "Y10", code: "Y10", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Tarihi Taş Fırın Evin (1923) & Sago Dondurma", lat: 41.0322, lng: 28.9478, nearSight: "Balat Çarşısı yürüyüş sokağı üstü", food: "100 yıllık odun fırınından susamlı galeta, gevrek ve doğal dondurma.", defaultChoice: "Olabilir" },
+      { id: "Y11", code: "Y11", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Halat Restoran (Rahmi Koç Müzesi)", lat: 41.0419, lng: 28.9494, nearSight: "2.2 Rahmi M. Koç Müzesi içinde (Hasköy) – 2. Gün öğle yemeği", food: "Haliç kıyısında Akdeniz mutfağı (Divan işletmesi). Yağmurda müzeden çıkmadan öğle yemeği; saatleri teyit edin.", defaultChoice: "Kesin" },
+      { id: "Y12", code: "Y12", dayGroup: "2", groupTitle: "2. Gün: Hasköy, Eyüp & Balat", name: "Karadeniz Pide Salonu (Sezai Usta - Cibali)", lat: 41.0232, lng: 28.9535, nearSight: "2. Gün Balat dönüşü akşam yemeği (Cibali, Haliç kıyısı) / 3. Gün Süleymaniye altı", food: "Hakiki Trabzon tereyağlı, kavurmalı ve peynirli taş fırın pidesi.", defaultChoice: "Kesin" },
       { id: "Y13", code: "Y13", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Erzincanlı Ali Baba (Süleymaniye Kuru Fasulye)", lat: 41.0159, lng: 28.9634, nearSight: "Süleymaniye Camii ana giriş kapısının tam karşısı (1 dk)", food: "Bakır kazanda odun ateşinde kuru fasulye, tane pilav, kabak tatlısı.", defaultChoice: "Kesin" },
       { id: "Y14", code: "Y14", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Tarihi Vefa Bozacısı (1876)", lat: 41.0155, lng: 28.9568, nearSight: "Süleymaniye Camii ile Şehzade Camii'nin tam ortasında", food: "Tarçınlı tarihi Vefa bozası ve kavrulmuş sarı leblebi.", defaultChoice: "Kesin" },
       { id: "Y15", code: "Y15", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Day Day Pastanesi", lat: 41.0092, lng: 28.9698, nearSight: "Kapalıçarşı Nuruosmaniye/Çemberlitaş çıkışı yanı", food: "Geleneksel paskalya çöreği ve tuzlu kurabiye.", defaultChoice: "Olabilir" },
@@ -840,16 +849,19 @@
       { id: "Y17", code: "Y17", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Kuveloğlu Han Tarihi Leziz Pide Fırını (1943)", lat: 41.0162, lng: 28.9696, nearSight: "Uzunçarşı alt ucu & Rüstem Paşa Camii yanı", food: "Tarihi Osmanlı hanı avlusunda odun fırınında Karadeniz pidesi.", defaultChoice: "Olabilir" },
       { id: "Y18", code: "Y18", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Altan Şekerleme (1865)", lat: 41.0175, lng: 28.9685, nearSight: "Rüstem Paşa Camii'ne 2 dk yürüme mesafesinde", food: "160 yıllık kavanozlarda el yapımı akide şekeri ve lokum.", defaultChoice: "Kesin" },
       { id: "Y19", code: "Y19", dayGroup: "3", groupTitle: "3. Gün: Süleymaniye & Çarşılar", name: "Mini Tuşba Meze Evi", lat: 41.0188, lng: 28.9475, nearSight: "Fatih Camii yakınında", food: "Ev yapımı zeytinyağlılar ve mezeler.", defaultChoice: "Şart Değil" },
-      { id: "Y20", code: "Y20", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Tarihi Kasımpaşa Börekçisi (1947)", lat: 41.0169, lng: 28.9718, nearSight: "Eminönü Yeni Cami ve Mısır Çarşısı yanı", food: "Pudra şekerli çıtır küt böreği ve kıymalı kol böreği.", defaultChoice: "Olabilir" },
-      { id: "Y21", code: "Y21", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Eminönü Tarihi Balık-Ekmek Tekneleri", lat: 41.0179, lng: 28.9722, nearSight: "Eminönü Boğaz Turu İskelesi ve Galata Köprüsü başı", food: "Tarihi kayıklarda ızgara balık-ekmek ve turşu suyu.", defaultChoice: "Olabilir" },
-      { id: "Y22", code: "Y22", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Balıkçı Emin Usta (Super Mario Balık Dürüm)", lat: 41.0238, lng: 28.9727, nearSight: "Karaköy Tarihi Tünel (F2) çıkışı ve Karaköy Vapur İskelesi yanı", food: "Köz biberli, nar ekşili ve baharatlı uskumru balık dürüm.", defaultChoice: "Kesin" },
-      { id: "Y23", code: "Y23", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Kızılkayalar Islak Hamburger (Taksim)", lat: 41.0365, lng: 28.9850, nearSight: "Taksim Meydanı Anıtı ve Nostaljik Tramvay başlangıcı", food: "Sarımsaklı domates soslu Taksim ıslak hamburgeri.", defaultChoice: "Kesin" },
-      { id: "Y24", code: "Y24", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Sabırtaşı İçli Köfte", lat: 41.0342, lng: 28.9788, nearSight: "İstiklal Caddesi ortası (Galatasaray Lisesi yanı)", food: "Tezgâhtan sıcak haşlama içli köfte.", defaultChoice: "Olabilir" },
-      { id: "Y25", code: "Y25", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Dürümzade (Beyoğlu)", lat: 41.0352, lng: 28.9765, nearSight: "İstiklal Caddesi Balık Pazarı arkası", food: "Özel soslu çıtır lavaşta közde Adana/Urfa/Tavuk dürüm.", defaultChoice: "Şart Değil" },
-      { id: "Y26", code: "Y26", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Rita Deli & Rita Prob (Moda)", lat: 40.9848, lng: 29.0272, nearSight: "Moda Sahil Parkı yürüyüş hattında (Şair Nefi Sk. No:18)", food: "Pastrami Sandviç ve Profiterol Burger tatlısı.", defaultChoice: "Kesin" },
-      { id: "Y27", code: "Y27", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Asuman Moda (Çikolata & Dondurma)", lat: 40.9842, lng: 29.0265, nearSight: "Moda Caddesi / Rita Deli'nin 100m yanı", food: "Kavanozda Belçika çikolatalı ve çilekli Asuman tatlısı.", defaultChoice: "Olabilir" },
-      { id: "Y28", code: "Y28", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "La Mora Pizza (Feneryolu)", lat: 40.9867, lng: 29.0435, nearSight: "Söğütlüçeşme'den Marmaray ile 1 durak (Feneryolu durağı yanı)", food: "Gerçek Napoli usulü ekşi mayalı odun ateşi İtalyan pizzaları.", defaultChoice: "Kesin" },
-      { id: "Y29", code: "Y29", dayGroup: "4", groupTitle: "4. Gün: Eminönü, Beyoğlu & Kadıköy", name: "Çiya Sofrası / Yanyalı Fehmi / Özcan Turşu", lat: 40.9895, lng: 29.0238, nearSight: "Kadıköy Vapur İskelesi çıkışı Tarihi Çarşı içi", food: "Anadolu tencere yemekleri (Çiya), Osmanlı mutfağı, turşu suyu.", defaultChoice: "Olabilir" },
+      { id: "Y20", code: "Y20", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Tarihi Kasımpaşa Börekçisi (1947)", lat: 41.0169, lng: 28.9718, nearSight: "Eminönü Yeni Cami ve Mısır Çarşısı yanı", food: "Pudra şekerli çıtır küt böreği ve kıymalı kol böreği.", defaultChoice: "Olabilir" },
+      { id: "Y21", code: "Y21", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Eminönü Tarihi Balık-Ekmek Tekneleri", lat: 41.0179, lng: 28.9722, nearSight: "Eminönü Boğaz Turu İskelesi ve Galata Köprüsü başı", food: "Tarihi kayıklarda ızgara balık-ekmek ve turşu suyu.", defaultChoice: "Olabilir" },
+      { id: "Y22", code: "Y22", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Balıkçı Emin Usta (Super Mario Balık Dürüm)", lat: 41.0238, lng: 28.9727, nearSight: "Karaköy Tarihi Tünel (F2) çıkışı ve Karaköy Vapur İskelesi yanı", food: "Köz biberli, nar ekşili ve baharatlı uskumru balık dürüm.", defaultChoice: "Kesin" },
+      { id: "Y23", code: "Y23", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Kızılkayalar Islak Hamburger (Taksim)", lat: 41.0365, lng: 28.9850, nearSight: "Taksim Meydanı Anıtı ve Nostaljik Tramvay başlangıcı", food: "Sarımsaklı domates soslu Taksim ıslak hamburgeri.", defaultChoice: "Kesin" },
+      { id: "Y24", code: "Y24", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Sabırtaşı İçli Köfte", lat: 41.0342, lng: 28.9788, nearSight: "İstiklal Caddesi ortası (Galatasaray Lisesi yanı)", food: "Tezgâhtan sıcak haşlama içli köfte.", defaultChoice: "Olabilir" },
+      { id: "Y25", code: "Y25", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Dürümzade (Beyoğlu)", lat: 41.0352, lng: 28.9765, nearSight: "İstiklal Caddesi Balık Pazarı arkası", food: "Özel soslu çıtır lavaşta közde Adana/Urfa/Tavuk dürüm.", defaultChoice: "Şart Değil" },
+      { id: "Y39", code: "Y39", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Hafız Mustafa 1864 (Sirkeci)", lat: 41.0144, lng: 28.9765, navQuery: "Hafız Mustafa 1864 Sirkeci Muradiye Caddesi", nearSight: "4.1 Sirkeci otoparkına yürüme mesafesi (Muradiye Cd. No:51) – Topkapı öncesi hızlı kahvaltı; 3. Gün Mısır Çarşısı dönüşünde de yakın", food: "1864'ten beri tatlıcı: börek, baklava, sütlaç ve çay. Oturup hızlıca karın doyurmak için (açılış saatini Google'dan kontrol edin).", defaultChoice: "Olabilir" },
+      { id: "Y40", code: "Y40", dayGroup: "4", groupTitle: "4. Gün: Sirkeci, Eminönü & Beyoğlu", name: "Karaköy Güllüoğlu", lat: 41.0237, lng: 28.9788, navQuery: "Karaköy Güllüoğlu", nearSight: "4.6 Tünel F2 Karaköy inişine ~5 dk – arabalı vapura geçmeden önce", food: "Tarihi baklavacı: fıstıklı baklava, börek ve çay. Akşamüstü enerji molası.", defaultChoice: "Olabilir" },
+      { id: "Y26", code: "Y26", dayGroup: "5", groupTitle: "5. Gün: Moda, Kadıköy & Feneryolu", name: "Rita Deli & Rita Prob (Moda)", lat: 40.9848, lng: 29.0272, nearSight: "Moda Sahil Parkı yürüyüş hattında (Şair Nefi Sk. No:18)", food: "Pastrami Sandviç ve Profiterol Burger tatlısı.", defaultChoice: "Kesin" },
+      { id: "Y27", code: "Y27", dayGroup: "5", groupTitle: "5. Gün: Moda, Kadıköy & Feneryolu", name: "Asuman Moda (Çikolata & Dondurma)", lat: 40.9842, lng: 29.0265, nearSight: "Moda Caddesi / Rita Deli'nin 100m yanı", food: "Kavanozda Belçika çikolatalı ve çilekli Asuman tatlısı.", defaultChoice: "Olabilir" },
+      { id: "Y28", code: "Y28", dayGroup: "5", groupTitle: "5. Gün: Moda, Kadıköy & Feneryolu", name: "La Mora Pizza (Feneryolu)", lat: 40.9867, lng: 29.0435, nearSight: "5.1 Moda/Kadıköy'den araçla ~10 dk (Feneryolu) – 5. Gün öğle yemeği; açılış saatini teyit edin", food: "Gerçek Napoli usulü ekşi mayalı odun ateşi İtalyan pizzaları.", defaultChoice: "Kesin" },
+      { id: "Y29", code: "Y29", dayGroup: "5", groupTitle: "5. Gün: Moda, Kadıköy & Feneryolu", name: "Çiya Sofrası / Yanyalı Fehmi / Özcan Turşu", lat: 40.9895, lng: 29.0238, nearSight: "5.1 Kadıköy Tarihi Çarşı içi", food: "Anadolu tencere yemekleri (Çiya), Osmanlı mutfağı, turşu suyu.", defaultChoice: "Olabilir" },
+      { id: "Y41", code: "Y41", dayGroup: "5", groupTitle: "5. Gün: Moda, Kadıköy & Feneryolu", name: "Baylan Pastanesi (Kadıköy)", lat: 40.9898, lng: 29.0262, navQuery: "Baylan Pastanesi Kadıköy", nearSight: "5.1 Kadıköy Çarşısı içinde (Muvakkithane Cd.) – 09:00'da açılıyor", food: "Tarihi pastane: meşhur Kup Griye, pasta, kurabiye ve sıcak içecek. Sabah çay/kahve molası.", defaultChoice: "Olabilir" },
       { id: "Y30", code: "Y30", dayGroup: "5", groupTitle: "5. Gün: Kuzguncuk, Çengelköy & Sakarya", name: "Metet Közde Döner (Kuzguncuk)", lat: 41.0360, lng: 29.0285, nearSight: "Fethi Paşa Korusu alt çıkışı ve Üryanizade Camii'ne 2 dk", food: "Meşe odununda ağır ağır pişen %100 yaprak et döner.", defaultChoice: "Kesin" },
       { id: "Y31", code: "Y31", dayGroup: "5", groupTitle: "5. Gün: Kuzguncuk, Çengelköy & Sakarya", name: "Hatice Anne Ev Yemekleri (Kuzguncuk)", lat: 41.0352, lng: 29.0298, nearSight: "Kuzguncuk İcadiye Caddesi üstü", food: "Zeytinyağlılar, sarmalar, mantı ve çocuk dostu ev yemekleri.", defaultChoice: "Olabilir" },
       { id: "Y32", code: "Y32", dayGroup: "5", groupTitle: "5. Gün: Kuzguncuk, Çengelköy & Sakarya", name: "Tarihi Kuzguncuk Fırını", lat: 41.0358, lng: 29.0290, nearSight: "Kuzguncuk İcadiye Caddesi tam ortası", food: "Mantarlı kurabiye, acıbadem, sakızlı kurabiye ve gevrekler.", defaultChoice: "Kesin" },
@@ -862,14 +874,16 @@
     ];
 
     const DAY_INFO = {
-      "all": { title: "Argon v2 Çatı Planı (5 Gün)", sub: "Tüm Gezi Rotası + Bağımsız Yemek Katmanı", weather: "34 Gezi + 38 Yemek" },
-      "1": { title: "1. Gün: 28 Ekim Çarşamba", sub: "Ayasofya, Topkapı, Sultanahmet, Yerebatan, Gülhane, Hacı Bekir", weather: "🌤️ 17°C Kuru (10:00+)" },
-      "2": { title: "2. Gün: 29 Ekim Perşembe", sub: "Atatürk Arboretumu (08:30), Eyüp Sultan, Balat & Rahmi Koç", weather: "🌧️ 17.4°C Yağışlı" },
-      "3": { title: "3. Gün: 30 Ekim Cuma", sub: "Süleymaniye, Şehzade, Vefa, Kapalıçarşı & Hanlar", weather: "🌤️ 15.7°C Gündüz Kuru!" },
-      "4": { title: "4. Gün: 31 Ekim Cumartesi", sub: "Yeni Cami, Boğaz Turu, Taksim-Tünel & Kadıköy-Moda", weather: "☀️ 16.7°C Kuru" },
-      "5": { title: "5. Gün: 1 Kasım Pazar", sub: "Mihrimah, Kariye, Yedikule, Kuzguncuk & Çengelköy", weather: "☀️ 18.0°C Ilıman" },
-      "food_only": { title: "🍽️ Bağımsız Yemek Katmanı", sub: "Tüm İstanbul Lezzet Noktaları (Y1 – Y38)", weather: "38 Mekan" }
+      "all": { title: "İstanbul Gezi Planı (5 Gün)", sub: "Güncel rota (29 Ekim revizyonu) + yemek katmanı", weather: "" },
+      "1": { title: "1. Gün: 28 Ekim Çarşamba", sub: "Ayasofya, Topkapı, Sultanahmet, Yerebatan, Gülhane, Hacı Bekir • 🚋 T1 + 🚶", weather: "🌤️ 17°C Kuru (10:00+)" },
+      "2": { title: "2. Gün: 29 Ekim Perşembe", sub: "🚗 Araç günü: Arboretum → Rahmi Koç → Eyüp & Pierre Loti → Fener-Balat", weather: "🌧️ 18°C Yağışlı (en yoğun 10–12)" },
+      "3": { title: "3. Gün: 30 Ekim Cuma", sub: "🚋 T1 + 🚶: Süleymaniye, Şehzade, Vefa, Kapalıçarşı, Hanlar & Mısır Çarşısı", weather: "🌦️ 16°C Yağış belirsiz, yağmurluk alın" },
+      "4": { title: "4. Gün: 31 Ekim Cumartesi", sub: "Check-out → Topkapı (2. ziyaret) → Boğaz Turu → Taksim-Tünel → ⛴️ Arabalı vapurla Anadolu", weather: "☀️ 16°C Kuru, rüzgar sakin" },
+      "5": { title: "5. Gün: 1 Kasım Pazar", sub: "Anadolu Yakası: Moda-Kadıköy, La Mora, Kuzguncuk & Çengelköy → 🚗 TEM ile dönüş", weather: "☀️ 18°C Kuru" },
+      "food_only": { title: "🍽️ Bağımsız Yemek Katmanı", sub: "Tüm lezzet, kahvaltı ve atıştırmalık noktaları", weather: "" }
     };
+    DAY_INFO.all.weather = `${SIGHT_POIS.filter(p => p.day !== "0").length} Gezi + ${FOOD_POIS.length} Yemek`;
+    DAY_INFO.food_only.weather = `${FOOD_POIS.length} Mekan`;
 
     // ============================================================================
     // 3. HARİTA KURULUMU
@@ -909,11 +923,26 @@
       });
     }
 
+    // Koordinatı belirsiz noktalarda (otopark, iskele, mekan) navigasyon isimle yapılır
+    function navLinks(p) {
+      const dest = p.navQuery ? encodeURIComponent(p.navQuery) : `${p.lat},${p.lng}`;
+      return {
+        gmaps: `https://www.google.com/maps/dir/?api=1&destination=${dest}`,
+        amaps: `https://maps.apple.com/?daddr=${dest}`
+      };
+    }
+
+    function hasGuide(id) {
+      return ALL_GUIDE_DATA.some(g => g.id === id);
+    }
+
     function createSightPopup(poi) {
-      const gmaps = `https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}`;
-      const amaps = `https://maps.apple.com/?daddr=${poi.lat},${poi.lng}`;
-      const guidePopupBtn = poi.day !== "0"
+      const { gmaps, amaps } = navLinks(poi);
+      const guidePopupBtn = hasGuide(poi.id)
         ? `<button class="m-btn guide-btn" style="margin-top:6px; display:block;" onclick="openGuideModal('${poi.id}')">📖 Rehber Anlatımı & Görseller</button>`
+        : ``;
+      const transitHtml = poi.transit
+        ? `<div style="font-size:0.71rem; color:#a5f3fc; background:rgba(0,0,0,0.3); padding:4px 6px; border-radius:5px; margin-bottom:4px;">🧭 <b>Buraya:</b> ${poi.transit}</div>`
         : ``;
       return `
         <div class="popup-box">
@@ -921,6 +950,7 @@
           <div class="popup-title">${poi.name}</div>
           <div style="font-size:0.72rem; color:#fde68a; margin-bottom:4px;">⏰ ${poi.time}</div>
           <div class="popup-desc">${poi.desc}</div>
+          ${transitHtml}
           <div style="font-size:0.71rem; color:#fbbf24; background:rgba(0,0,0,0.3); padding:4px 6px; border-radius:5px;">🍽️ <b>Yakın:</b> ${poi.nearFood}</div>
           ${guidePopupBtn}
           <div class="popup-nav-row">
@@ -932,8 +962,7 @@
     }
 
     function createFoodPopup(f) {
-      const gmaps = `https://www.google.com/maps/dir/?api=1&destination=${f.lat},${f.lng}`;
-      const amaps = `https://maps.apple.com/?daddr=${f.lat},${f.lng}`;
+      const { gmaps, amaps } = navLinks(f);
       return `
         <div class="popup-box">
           <div style="font-size:0.68rem; font-weight:800; color:#fbbf24;">🍽️ YEMEK NOKTASI • ${f.code}</div>
@@ -955,9 +984,10 @@
 
       days.forEach(d => {
         if (d === "4") {
-          const d4Eu = SIGHT_POIS.filter(p => p.day === "4" && p.order <= 6).sort((a,b) => a.order - b.order);
-          L.polyline(d4Eu.map(p => [p.lat, p.lng]), { color: 'var(--day4-color)', weight: 4, opacity: 0.85 }).addTo(routeLayerGroup);
-          L.polyline([[41.0225, 28.9760], [40.9915, 29.0225], [40.9808, 29.0235]], { color: '#38bdf8', weight: 3.5, dashArray: '6, 6' }).addTo(routeLayerGroup);
+          const d4 = SIGHT_POIS.filter(p => p.day === "4").sort((a,b) => a.order - b.order);
+          L.polyline(d4.map(p => [p.lat, p.lng]), { color: 'var(--day4-color)', weight: 4, opacity: 0.85 }).addTo(routeLayerGroup);
+          // Sirkeci → Harem arabalı vapur geçişi
+          L.polyline([[41.0160, 28.9805], [41.0115, 28.9975], [41.0078, 29.0128]], { color: '#38bdf8', weight: 3.5, dashArray: '6, 6' }).addTo(routeLayerGroup);
           const bosphorusRing = [
             [41.0185, 28.9730], [41.0375, 28.9950], [41.0475, 29.0270],
             [41.0850, 29.0570], [41.0780, 29.0650], [41.0508, 29.0518],
@@ -1017,13 +1047,13 @@
       if (activeMode !== "food" && activeDay !== "food_only") {
         sights.forEach(poi => {
           count++;
-          const gmaps = `https://www.google.com/maps/dir/?api=1&destination=${poi.lat},${poi.lng}`;
-          const amaps = `https://maps.apple.com/?daddr=${poi.lat},${poi.lng}`;
+          const { gmaps, amaps } = navLinks(poi);
           const badge = poi.order === 0 ? "🏨" : `${poi.day}.${poi.order}`;
           const tierCls = poi.tier === "Çekirdek" ? "core" : "opt";
-          const guideCardBtn = poi.day !== "0"
+          const guideCardBtn = hasGuide(poi.id)
             ? `<button class="m-btn guide-btn" onclick="openGuideModal('${poi.id}')">📖 Rehber Anlatımı & Görselleri Aç</button>`
             : ``;
+          const transitHtml = poi.transit ? `<div class="m-transit">🧭 <b>Buraya nasıl:</b> ${poi.transit}</div>` : ``;
           const div = document.createElement('div');
           div.className = 'm-card';
           div.innerHTML = `
@@ -1034,6 +1064,7 @@
             </div>
             <div class="m-title">${poi.name}</div>
             <div class="m-desc">${poi.desc}</div>
+            ${transitHtml}
             <div class="m-near">🍽️ <b>Yakınında:</b> ${poi.nearFood}</div>
             ${guideCardBtn}
             <div class="m-actions">
@@ -1054,8 +1085,7 @@
 
         listFoods.forEach(f => {
           count++;
-          const gmaps = `https://www.google.com/maps/dir/?api=1&destination=${f.lat},${f.lng}`;
-          const amaps = `https://maps.apple.com/?daddr=${f.lat},${f.lng}`;
+          const { gmaps, amaps } = navLinks(f);
           const div = document.createElement('div');
           div.className = 'm-card food-card';
           div.innerHTML = `
@@ -1259,7 +1289,7 @@
     }
 
     // ============================================================================
-    // 4. TÜM GÜNLER (1–5. GÜN, 32 DURAK) SAHA REHBER ANLATIMI & GÖRSELLER VERİ SETİ (DEFAULT KAPALI, BUTONLA AÇILIR)
+    // 4. TÜM GÜNLER (1–5. GÜN) SAHA REHBER ANLATIMI & GÖRSELLER VERİ SETİ (DEFAULT KAPALI, BUTONLA AÇILIR)
     // ============================================================================
     const ALL_GUIDE_DATA = [
       // ==================== 1. GÜN: 28 EKİM ÇARŞAMBA ====================
@@ -1477,7 +1507,7 @@
         day: "2",
         shortLabel: "2.1 Arboretum & Emirgan",
         title: "2.1. Atatürk Arboretumu (Bahçeköy) & [Referans: Emirgan Korusu Köşkleri]",
-        time: "2. Gün • 08:30 – 10:30",
+        time: "2. Gün • 09:00 – 10:30",
         images: [
           {
             local: "anlatim/gorseller/16_ataturk_arboretumu.jpg",
@@ -1499,17 +1529,41 @@
           "<b>1. Kirazlıbent (Tarihi II. Mahmud Su Bendi – 1818):</b> Arboretum sınırları içinde yer alan <b>Kirazlıbent</b>, 1818 yılında Padişah <b>II. Mahmud</b> tarafından Taksim Suyu tesislerini beslemek için Kirazlıdere üzerine mermer ve kesme taştan yaptırılmış <b>208 yıllık tarihi bir Osmanlı barajıdır</b>.",
           "<b>2. 1916 Neşet Suyu Fidanlığı:</b> Arboretum içindeki göletlerden biri adını 1916'da Orman Mekteb-i Âlisi müdürü Neşet Bey'in kurduğu <b>Türkiye'nin ilk bilimsel orman fidanlığından</b> alır.",
           "<b>3. Ekim Sonu Sonbahar Yıldızları (Sığla ve Bataklık Selvileri):</b> Büyük Gölet kıyısında suya yansıyan sarı, turuncu ve kızıl yapraklı ağaçlar <b>Amerikan Sığla Ağacı (Liquidambar)</b>, <b>Japon Akçaağacı</b> ve suyun içinden nefes kökleri çıkaran <b>Bataklık Selvisi (Taxodium)</b> türleridir.",
-          "<b>4. Saha Kuralı:</b> Bebek arabası (puset) serbesttir; ancak bilimsel koruma statüsü gereği içeriye su ve bebek maması/sütü dışında yiyecek, bisiklet, scooter (Globber) ve top alınmaz.",
+          "<b>4. Saha Kuralı:</b> Bilimsel koruma statüsü gereği içeriye sudan başka yiyecek-içecek, bisiklet, scooter (Globber) ve top alınmaz. Bilet online satılıyor, Müzekart geçmiyor; Pazartesi kapalı. Kahvaltıyı girmeden yapın, pusetle girişi kapıda sorun.",
           "<b>[Referans Bilgi] Emirgan Korusu & 3 Köşk:</b> Adını 1635'te IV. Murad'a Erivan Kalesi'ni teslim eden Safevi komutanı <b>Emirgûne Han</b>'dan alır. İçindeki <b>Sarı Köşk, Pembe Köşk ve Beyaz Köşk</b> ise 1871–1878 arasında Mısır Hıdivi <b>İsmail Paşa</b> tarafından yaptırılmıştır."
         ],
-        anecdote: "💡 <b>Fotoğraf Noktası:</b> Sabah 08:30'da ilk girenlerden olduğunuzda Büyük Gölet'in su yüzeyi rüzgarsız ve ayna gibi düzdür; sığla ağaçlarının kızıl yansımasını çekmek için yılın en iyi haftası Ekim sonudur!"
+        anecdote: "💡 <b>Fotoğraf Noktası:</b> Sabah 09:00 açılışında ilk girenlerden olduğunuzda Büyük Gölet'in su yüzeyi rüzgarsız ve ayna gibi düzdür; sığla ağaçlarının kızıl yansımasını çekmek için yılın en iyi haftası Ekim sonudur!"
       },
       {
         id: "s_2_2",
         day: "2",
-        shortLabel: "2.2 Eyüp Sultan",
-        title: "2.2. Eyüp Sultan Camii ve Türbesi",
-        time: "2. Gün • 10:45 – 11:30",
+        shortLabel: "2.2 Rahmi Koç Müzesi",
+        title: "2.2. Rahmi M. Koç Müzesi (Hasköy)",
+        time: "2. Gün • 11:10 – 13:30",
+        images: [
+          {
+            local: "anlatim/gorseller/22_rahmi_koc_muzesi.jpg",
+            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Istanbul_asv2021-11_img14_Rahmi_Ko%C3%A7_Museum.jpg/960px-Istanbul_asv2021-11_img14_Rahmi_Ko%C3%A7_Museum.jpg",
+            caption: "Rahmi M. Koç Müzesi (Hasköy Tersanesi ve Tarihi Lengerhane Binası)"
+          }
+        ],
+        identity: [
+          "<b>Tarihi Binaları:</b> Müze sıradan bir binada değil, iki önemli Osmanlı sanayi mirasının içindedir: <b>1) Lengerhane Binası</b> (18. yüzyılda III. Ahmed döneminde Osmanlı donanmasının gemi çapalarını/lengerlerini dökmek için kurulan dökümhane) ve <b>2) Hasköy Tersanesi</b> (1861'de Şirket-i Hayriye vapurlarının bakımı için kurulan tersane)."
+        ],
+        highlights: [
+          "<b>1. Sultan Abdülaziz'in Saltanat Vagonu (1867):</b> Padişah Abdülaziz'in Avrupa seyahati için İngiltere'de özel üretilmiş altın işlemeli, kadife koltuklu orijinal padişah tren vagonu.",
+          "<b>2. Fenerbahçe Vapuru (1952):</b> İskoçya'da üretilen ve yıllarca Sirkeci–Adalar–Yalova hattında çalışan tarihi vapur (İçine girilebilir; üst katında <b>Yalova Termal Otel Atatürk Köşkü mobilyaları</b> ve çocuk oyun alanı vardır).",
+          "<b>3. Klasik Otomobiller Salonu:</b> 1898 model Malden buharlı otomobil ve Türkiye'nin ilk seri üretim otomobili <b>Anadol (1966)</b>.",
+          "<b>4. B-24 Liberator ('Hadley's Harem') Savaş Uçağı:</b> II. Dünya Savaşı'nda 1944'te Romanya'daki petrol kuyularını bombaladıktan sonra vurulup Antalya açıklarında denize düşen ve 50 yıl sonra deniz dibinden çıkarılıp restore edilen gerçek Amerikan bombardıman uçağı!"
+        ],
+        anecdote: "💡 <b>2 Yaş 9 Aylık Çocuk İçin Cennet:</b> Yağışın en yoğun olduğu 29 Ekim öğle saatlerinde tam boy kapalı salonları, içine binilebilen trenleri, vapuru ve tramvaylarıyla çocuğun en çok eğleneceği duraktır."
+      },
+      {
+        id: "s_2_3",
+        day: "2",
+        shortLabel: "2.3 Eyüp Sultan",
+        title: "2.3. Eyüp Sultan Camii ve Türbesi",
+        time: "2. Gün • 13:45 – 14:45",
         images: [
           {
             local: "anlatim/gorseller/17_eyup_sultan_turbesi.jpg",
@@ -1529,11 +1583,11 @@
         anecdote: "💡 <b>Kılıç Alayı Geleneği:</b> Padişah Eyüp Sultan'da kılıç kuşandıktan sonra saraya denizden dönmez; at sırtında Edirnekapı'dan şehre girerek Fatih Sultan Mehmet'in dedeleri gibi gazâ ve adalet sözü verirdi."
       },
       {
-        id: "s_2_3",
+        id: "s_2_4",
         day: "2",
-        shortLabel: "2.3 Pierre Loti",
-        title: "2.3. Pierre Loti Tepesi & TF2 Teleferik",
-        time: "2. Gün • 11:30 – 12:15",
+        shortLabel: "2.4 Pierre Loti",
+        title: "2.4. Pierre Loti Tepesi & TF2 Teleferik",
+        time: "2. Gün • 14:45 – 15:15 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/18_pierre_loti_halic.jpg",
@@ -1551,11 +1605,34 @@
         anecdote: "💡 <b>TBMM Şükran Mektubu (1920):</b> Milli Mücadele'ye verdiği destekten ötürü 1920'de TBMM tarafından kendisine resmi şükran mektubu ile el dokuması Türk halısı gönderilmiş ve <b>İstanbul Fahri Hemşehrisi</b> ilan edilmiştir."
       },
       {
-        id: "s_2_4",
+        id: "s_2_5",
         day: "2",
-        shortLabel: "2.4 Demir Kilise",
-        title: "2.4. Sveti Stefan Bulgar Kilisesi ('Demir Kilise')",
-        time: "2. Gün • 13:15 – 13:45",
+        shortLabel: "2.5 Patrikhane",
+        title: "2.5. Fener Rum Patrikhanesi ve Kırmızı Mektep",
+        time: "2. Gün • 15:30 – 16:00 [Opsiyonel]",
+        images: [
+          {
+            local: "anlatim/gorseller/20_fener_rum_patrikhanesi.jpg",
+            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/St._George%27s_Cathedral_2022_%286%29.jpg/960px-St._George%27s_Cathedral_2022_%286%29.jpg",
+            caption: "Fener Rum Patrikhanesi (Aya Yorgi Kilisesi)"
+          }
+        ],
+        identity: [
+          "<b>Fener Rum Patrikhanesi:</b> Dünyadaki yaklaşık 300 milyon Ortodoks Hristiyanın ruhani merkezidir; 1601 yılından beri Fener'deki Aya Yorgi yerleşkesindedir.",
+          "<b>Kırmızı Mektep (Tepedeki Kırmızı Şato):</b> Haliç'ten yukarı baktığınızda gördüğünüz devasa kırmızı şato benzeri bina <b>Patrikhane DEĞİLDİR!</b> Orası 1454'te kurulan ve bugünkü binası <b>1881</b>'de Mimar Konstantinos Dimadis tarafından Marsilya'dan getirilen kırmızı ateş tuğlalarıyla yapılan <b>Fener Rum Erkek Lisesi</b>'dir."
+        ],
+        highlights: [
+          "<b>1. Patrikhanedeki Kapalı Orta Kapı ('Kin Kapısı' – 1821):</b> Avluya girerken merdivenlerin başındaki <b>3 kapıdan tam ortadakinin simsiyah boyalı ve kaynakla tamamen kapalı</b> olduğunu, insanların yan kapılardan girdiğini göreceksiniz! 1821 Yunan (Mora) İsyanı'na gizlice destek verdiği tespit edilen <b>Patrik V. Grigorios</b>, Padişah II. Mahmud'un emriyle Paskalya günü tam bu orta kapıda idam edilmiştir. O günden beri (205 yıldır) bu kapı hiç açılmamıştır.",
+          "<b>2. Hz. İsa'nın Kırbaçlandığı Sütun & Haçlıların Çaldığı Kemikler:</b> Kilisenin içinde sağ köşede Kudüs'ten getirilen kutsal sütun parçası ve 1204'te 4. Haçlı Seferi'nde Vatikan'a kaçırılıp 800 yıl sonra 2004'te iade edilen aziz lahitleri bulunur."
+        ],
+        anecdote: "💡 <b>En Sık Yapılan Yanılgı:</b> Turistlerin %90'ı tepedeki devasa Kırmızı Mektep'i Fener Rum Patrikhanesi sanır; oysa gerçek Patrikhane sahile çok yakın, mütevazı duvarlar arkasındadır."
+      },
+      {
+        id: "s_2_6",
+        day: "2",
+        shortLabel: "2.6 Demir Kilise",
+        title: "2.6. Sveti Stefan Bulgar Kilisesi ('Demir Kilise')",
+        time: "2. Gün • 16:00 – 16:30",
         images: [
           {
             local: "anlatim/gorseller/19_sveti_stefan_demir_kilise.jpg",
@@ -1573,17 +1650,12 @@
         anecdote: "💡 <b>'90 Gün' Efsanesi:</b> Halk arasında Bulgarların Rum Patrikhanesi'nden bağımsız kilise kurmak için izin istedikleri, sadrazamın <i>'90 günde bitirebilirseniz yapın'</i> dediği ve bu yüzden prefabrik yapıldığı anlatılır (Gerçekte Viyana'daki üretim ve montaj süreci 1892–1898 arası 6 yıl sürmüştür)."
       },
       {
-        id: "s_2_5",
+        id: "s_2_7",
         day: "2",
-        shortLabel: "2.5 Patrikhane & Balat",
-        title: "2.5. Fener Rum Patrikhanesi, Kırmızı Mektep ve Balat Sokakları",
-        time: "2. Gün • 13:45 – 14:30 [Opsiyonel]",
+        shortLabel: "2.7 Balat Sokakları",
+        title: "2.7. Balat Sokakları ve Kiremit Caddesi",
+        time: "2. Gün • 16:30 – 17:30 [Opsiyonel]",
         images: [
-          {
-            local: "anlatim/gorseller/20_fener_rum_patrikhanesi.jpg",
-            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/St._George%27s_Cathedral_2022_%286%29.jpg/960px-St._George%27s_Cathedral_2022_%286%29.jpg",
-            caption: "Fener Rum Patrikhanesi (Aya Yorgi Kilisesi)"
-          },
           {
             local: "anlatim/gorseller/21_balat_kiremit_caddesi_kirmizi_mektep.jpg",
             remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Greek_Orthodox_College_in_Istanbul-0748_-_Flickr_-_Ragnhild_%26_Neil_Crawford.jpg/960px-Greek_Orthodox_College_in_Istanbul-0748_-_Flickr_-_Ragnhild_%26_Neil_Crawford.jpg",
@@ -1591,39 +1663,13 @@
           }
         ],
         identity: [
-          "<b>Fener Rum Patrikhanesi:</b> Dünyadaki yaklaşık 300 milyon Ortodoks Hristiyanın ruhani merkezidir; 1601 yılından beri Fener'deki Aya Yorgi yerleşkesindedir.",
-          "<b>Kırmızı Mektep (Tepedeki Kırmızı Şato):</b> Haliç'ten yukarı baktığınızda gördüğünüz devasa kırmızı şato benzeri bina <b>Patrikhane DEĞİLDİR!</b> Orası 1454'te kurulan ve bugünkü binası <b>1881</b>'de Mimar Konstantinos Dimadis tarafından Marsilya'dan getirilen kırmızı ateş tuğlalarıyla yapılan <b>Fener Rum Erkek Lisesi</b>'dir."
+          "<b>Balat:</b> Haliç kıyısında Rumların, Ermenilerin ve 1492'de İspanya'dan Osmanlı'ya sığınan Sefarad Yahudilerinin yüzyıllarca birlikte yaşadığı tarihi mahalledir."
         ],
         highlights: [
-          "<b>1. Patrikhanedeki Kapalı Orta Kapı ('Kin Kapısı' – 1821):</b> Avluya girerken merdivenlerin başındaki <b>3 kapıdan tam ortadakinin simsiyah boyalı ve kaynakla tamamen kapalı</b> olduğunu, insanların yan kapılardan girdiğini göreceksiniz! 1821 Yunan (Mora) İsyanı'na gizlice destek verdiği tespit edilen <b>Patrik V. Grigorios</b>, Padişah II. Mahmud'un emriyle Paskalya günü tam bu orta kapıda idam edilmiştir. O günden beri (205 yıldır) bu kapı hiç açılmamıştır.",
-          "<b>2. Hz. İsa'nın Kırbaçlandığı Sütun & Haçlıların Çaldığı Kemikler:</b> Kilisenin içinde sağ köşede Kudüs'ten getirilen kutsal sütun parçası ve 1204'te 4. Haçlı Seferi'nde Vatikan'a kaçırılıp 800 yıl sonra 2004'te iade edilen aziz lahitleri bulunur.",
-          "<b>3. Balat Kiremit Caddesi:</b> 1492'de İspanya'dan Osmanlı'ya sığınan Sefarad Yahudilerinin ve Rumların yaşadığı pastel renkli cumbalı evler sokağıdır."
+          "<b>1. Kiremit Caddesi:</b> Pastel renkli, cumbalı ahşap ve kagir evlerin sıralandığı, Balat'ın en çok fotoğraflanan yokuşudur.",
+          "<b>2. Kırmızı Mektep Manzarası:</b> Sokaklardan yukarı baktığınızda gördüğünüz kırmızı tuğlalı şato benzeri bina Patrikhane değil, 1881 tarihli <b>Fener Rum Erkek Lisesi</b>'dir."
         ],
-        anecdote: "💡 <b>En Sık Yapılan Yanılgı:</b> Turistlerin %90'ı tepedeki devasa Kırmızı Mektep'i Fener Rum Patrikhanesi sanır; oysa gerçek Patrikhane sahile çok yakın, mütevazı duvarlar arkasındadır."
-      },
-      {
-        id: "s_2_6",
-        day: "2",
-        shortLabel: "2.6 Rahmi Koç Müzesi",
-        title: "2.6. Rahmi M. Koç Müzesi (Hasköy)",
-        time: "2. Gün • 14:30 – 18:00",
-        images: [
-          {
-            local: "anlatim/gorseller/22_rahmi_koc_muzesi.jpg",
-            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Istanbul_asv2021-11_img14_Rahmi_Ko%C3%A7_Museum.jpg/960px-Istanbul_asv2021-11_img14_Rahmi_Ko%C3%A7_Museum.jpg",
-            caption: "Rahmi M. Koç Müzesi (Hasköy Tersanesi ve Tarihi Lengerhane Binası)"
-          }
-        ],
-        identity: [
-          "<b>Tarihi Binaları:</b> Müze sıradan bir binada değil, iki önemli Osmanlı sanayi mirasının içindedir: <b>1) Lengerhane Binası</b> (18. yüzyılda III. Ahmed döneminde Osmanlı donanmasının gemi çapalarını/lengerlerini dökmek için kurulan dökümhane) ve <b>2) Hasköy Tersanesi</b> (1861'de Şirket-i Hayriye vapurlarının bakımı için kurulan tersane)."
-        ],
-        highlights: [
-          "<b>1. Sultan Abdülaziz'in Saltanat Vagonu (1867):</b> Padişah Abdülaziz'in Avrupa seyahati için İngiltere'de özel üretilmiş altın işlemeli, kadife koltuklu orijinal padişah tren vagonu.",
-          "<b>2. Fenerbahçe Vapuru (1952):</b> İskoçya'da üretilen ve yıllarca Sirkeci–Adalar–Yalova hattında çalışan tarihi vapur (İçine girilebilir; üst katında <b>Yalova Termal Otel Atatürk Köşkü mobilyaları</b> ve çocuk oyun alanı vardır).",
-          "<b>3. Klasik Otomobiller Salonu:</b> 1898 model Malden buharlı otomobil ve Türkiye'nin ilk seri üretim otomobili <b>Anadol (1966)</b>.",
-          "<b>4. B-24 Liberator ('Hadley's Harem') Savaş Uçağı:</b> II. Dünya Savaşı'nda 1944'te Romanya'daki petrol kuyularını bombaladıktan sonra vurulup Antalya açıklarında denize düşen ve 50 yıl sonra deniz dibinden çıkarılıp restore edilen gerçek Amerikan bombardıman uçağı!"
-        ],
-        anecdote: "💡 <b>2 Yaş 9 Aylık Çocuk İçin Cennet:</b> Yağmurlu 29 Ekim öğleden sonrasında tam boy kapalı salonları, içine binilebilen trenleri, vapuru ve tramvaylarıyla çocuğun en çok eğleneceği duraktır."
+        anecdote: "💡 <b>Balat Adı:</b> Semtin adının, yakınındaki Bizans Blakhernai Sarayı'na atfen Rumca <i>palation</i> (saray) kelimesinden geldiği kabul edilir. <i>Puset notu:</i> Kiremit Caddesi yokuşludur; yorulduysanız gün içinde ilk kesilecek durak burasıdır."
       },
 
       // ==================== 3. GÜN: 30 EKİM CUMA ====================
@@ -1797,14 +1843,12 @@
         ],
         anecdote: "💡 <b>Mercan Kırmızısının Sırrı:</b> 16. yüzyılın ikinci yarısında sadece 30–40 yıl üretilebilen kabarık 'Mercan Kırmızısı' İznik çini sırrının formülü daha sonra kaybolmuştur ve en güzel örnekleri bu camidedir."
       },
-
-      // ==================== 4. GÜN: 31 EKİM CUMARTESİ ====================
       {
-        id: "s_4_1",
-        day: "4",
-        shortLabel: "4.1 Yeni Cami & Mısır Çarşısı",
-        title: "4.1. Eminönü Yeni Cami (Valide Sultan Camii) ve Mısır Çarşısı",
-        time: "4. Gün • 08:15 – 09:50",
+        id: "s_3_8",
+        day: "3",
+        shortLabel: "3.8 Yeni Cami & Mısır Çarşısı",
+        title: "3.8. Eminönü Yeni Cami (Valide Sultan Camii) ve Mısır Çarşısı",
+        time: "3. Gün • 17:15 – 18:00 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/32_eminonu_yeni_cami.jpg",
@@ -1827,12 +1871,44 @@
         ],
         anecdote: "💡 <b>Neden 'Yeni' Cami?</b> 360 yaşında olmasına rağmen İstanbul'daki büyük klasik selatin camilerinin (Fatih, Bayezid, Süleymaniye, Sultanahmet) ardından yapıldığı için halk arasındaki 'Yeni Cami' adı hiç değişmemiştir."
       },
+
+      // ==================== 4. GÜN: 31 EKİM CUMARTESİ ====================
       {
         id: "s_4_2",
         day: "4",
-        shortLabel: "4.2 Tam Boğaz Turu",
-        title: "4.2. Tam Kapsamlı Boğaz Turu (Denizden Göreceğiniz Saraylar, Hisarlar & Kız Kulesi)",
-        time: "4. Gün • 10:00 – 11:45",
+        shortLabel: "4.2 Topkapı (2. Ziyaret)",
+        title: "4.2. Topkapı Sarayı – 2. Ziyaret: Kutsal Emanetler, Hazine ve IV. Avlu",
+        time: "4. Gün • 09:15 – 12:00",
+        images: [
+          {
+            local: "anlatim/gorseller/07_topkapi_iftariye_kameriyesi.jpg",
+            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Topkap%C4%B1_-_01.jpg/960px-Topkap%C4%B1_-_01.jpg",
+            caption: "Topkapı Sarayı'nın Haliç'ten Görünüşü: Köşkler, Adalet Kulesi ve Aşağıda Sirkeci İskeleleri"
+          },
+          {
+            local: "anlatim/gorseller/05_topkapi_babussaade.jpg",
+            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Topkap%C4%B1_-_01.jpg/960px-Topkap%C4%B1_-_01.jpg",
+            caption: "Topkapı Sarayı Giriş Kuleleri ve Babüssaade (Saadet Kapısı)"
+          }
+        ],
+        identity: [
+          "<b>Bu Sefer Neden Farklı?</b> 1. gün kalabalık ve yorgunlukla iç bölümler yarım kaldıysa, bugün doğrudan Babüssaade'den geçip sarayın asıl iç kısmı olan <b>III. Avlu (Enderun)</b> ve <b>IV. Avlu</b>'ya odaklanın. Genel tarih ve II. Avlu detayları 1.2 kartındadır.",
+          "<b>Pratik Sıra:</b> 1) Kutsal Emanetler (kuyruk büyümeden ilk iş) → 2) Hazine → 3) IV. Avlu köşkleri ve teraslar → 4) İsterseniz Harem (ayrı bilet, Müzekart geçmez)."
+        ],
+        highlights: [
+          "<b>1. Kutsal Emanetler (Has Oda):</b> Yavuz Sultan Selim'in 1517 Mısır Seferi'nden sonra İstanbul'a getirilen <b>Hırka-i Saadet</b>, Peygamber Efendimiz'e ait olduğu kabul edilen mühür ve Sakal-ı Şerif ile dört halifenin kılıçları burada sergilenir; dairede Kur'an-ı Kerim tilaveti sürdürülür.",
+          "<b>2. Hazine (Fatih Köşkü):</b> Dünyaca ünlü 86 karatlık <b>Kaşıkçı Elması</b> ve üç büyük zümrütlü <b>Topkapı Hançeri</b> buradadır. Vitrin önünde sıra oluşabilir; çocukla kısa tutun.",
+          "<b>3. IV. Avlu Köşkleri:</b> IV. Murad'ın seferleri anısına yaptırdığı <b>Revan Köşkü (1635)</b> ve <b>Bağdat Köşkü (1639)</b>, Sünnet Odası ve Haliç'e bakan altın yaldızlı <b>İftariye Kameriyesi</b>. Mermer terastan Haliç ve Galata manzarası.",
+          "<b>4. Mecidiye Köşkü Terası:</b> Sarayın uç noktasında Boğaz, Marmara ve Üsküdar'ı birlikte gören teras; öğleden sonra denizden göreceğiniz Boğaz turunu yukarıdan görmek için iyi bir son durak."
+        ],
+        anecdote: "💡 <b>'Topkapı' Adı Nereden Geliyor?</b> Sarayın asıl adı <i>Saray-ı Cedîd-i Âmire</i> (Yeni Saray)'dir. 'Topkapı' adı, Sarayburnu'ndaki top kapısının yanında bulunan ve 19. yüzyılda yanan <b>Topkapı Sahil Sarayı</b>'ndan bu saraya geçmiştir."
+      },
+      {
+        id: "s_4_3",
+        day: "4",
+        shortLabel: "4.3 Boğaz Turu",
+        title: "4.3. Boğaz Turu (Denizden Göreceğiniz Saraylar, Hisarlar & Kız Kulesi)",
+        time: "4. Gün • 13:00 – 14:30",
         images: [
           {
             local: "anlatim/gorseller/34_bogaz_dolmabahce_ortakoy.jpg",
@@ -1860,11 +1936,11 @@
         anecdote: "💡 <b>Gemi Oturma İpucu:</b> Kalkışta geminin <b>sol (iskele)</b> tarafına oturursanız hem gidişte Avrupa kıyılarını hem dönüşte Anadolu kıyılarını en yakından görürsünüz!"
       },
       {
-        id: "s_4_3",
+        id: "s_4_4",
         day: "4",
-        shortLabel: "4.3 Taksim Meydanı",
-        title: "4.3. F1 Füniküler ile Taksim Meydanı, Maksem ve Cumhuriyet Anıtı",
-        time: "4. Gün • 11:45 – 12:30",
+        shortLabel: "4.4 Taksim Meydanı",
+        title: "4.4. F1 Füniküler ile Taksim Meydanı, Maksem ve Cumhuriyet Anıtı",
+        time: "4. Gün • 14:45 – 15:15 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/38_istiklal_nostaljik_tramvay.jpg",
@@ -1883,11 +1959,11 @@
         anecdote: "💡 <b>1732 Taksim Maksemi:</b> İstiklal Caddesi'nin başladığı köşedeki taş duvarlı yapı, şehre adını veren 294 yıllık orijinal su taksim deposudur."
       },
       {
-        id: "s_4_4",
+        id: "s_4_5",
         day: "4",
-        shortLabel: "4.4 İstiklal & St. Antuan",
-        title: "4.4. Tarihi Nostaljik Tramvay, İstiklal Caddesi, Galatasaray Lisesi ve St. Antuan Kilisesi",
-        time: "4. Gün • 13:15 – 14:30",
+        shortLabel: "4.5 İstiklal & St. Antuan",
+        title: "4.5. Tarihi Nostaljik Tramvay, İstiklal Caddesi, Galatasaray Lisesi ve St. Antuan Kilisesi",
+        time: "4. Gün • 15:15 – 16:00 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/38_istiklal_nostaljik_tramvay.jpg",
@@ -1911,11 +1987,11 @@
         anecdote: "💡 <b>Gül Baba ve II. Bayezid Anekdotu:</b> Padişah II. Bayezid kış günü Galata sırtlarında avlanırken kulübesinde kendisine sarı ve kırmızı iki gül ikram eden <b>Gül Baba</b> adlı dervişin dileği üzerine buraya saray okulu (Galatasaray) kurdurmuştur."
       },
       {
-        id: "s_4_5",
+        id: "s_4_6",
         day: "4",
-        shortLabel: "4.5 Tünel & Galata",
-        title: "4.5. Tarihi Tünel Füniküleri (F2 – 1875), Galata Kulesi ve Kamondo Merdivenleri",
-        time: "4. Gün • 14:30 – 15:20",
+        shortLabel: "4.6 Tarihi Tünel (F2)",
+        title: "4.6. Tarihi Tünel Füniküleri (F2 – 1875), Galata Kulesi ve Kamondo Merdivenleri",
+        time: "4. Gün • 16:00 – 16:20 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/40_tarihi_tunel_f2.jpg",
@@ -1935,33 +2011,36 @@
         anecdote: "💡 <b>Tünel'in İlk Yolcuları Neden Hayvanlardı?</b> 1875'te Tünel ilk açıldığında İstanbullular yerin altındaki dumanlı tünele girmekten çekinince, güven vermek için ilk seferlerde vagonlarla hayvanlar ve eşyalar taşınmış; güvenli olduğu görülünce halk akın etmiştir."
       },
       {
-        id: "s_4_6",
+        id: "s_4_7",
         day: "4",
-        shortLabel: "4.6 Vapur & Haydarpaşa",
-        title: "4.6. Karaköy – Kadıköy Vapuru ve Haydarpaşa Garı Silüeti",
-        time: "4. Gün • 15:30 – 16:00 [Opsiyonel]",
+        shortLabel: "4.7 Arabalı Vapur",
+        title: "4.7. Sirkeci – Harem Arabalı Vapuru: Haydarpaşa, Selimiye ve Kız Kulesi Silüeti",
+        time: "4. Gün • 17:00 – 17:45",
         images: [
           {
             local: "anlatim/gorseller/42_karakoy_kadikoy_vapuru_haydarpasa.jpg",
             remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Rasimpa%C5%9Fa%2C_Haydarpa%C5%9Fa_%C4%B0skelesi%2C_Haydarpa%C5%9Fa_Gar_Binas%C4%B1_Yan%C4%B1%2C_34716_Kad%C4%B1k%C3%B6y-%C4%B0stanbul%2C_Turkey_-_panoramio.jpg/960px-Rasimpa%C5%9Fa%2C_Haydarpa%C5%9Fa_%C4%B0skelesi%2C_Haydarpa%C5%9Fa_Gar_Binas%C4%B1_Yan%C4%B1%2C_34716_Kad%C4%B1k%C3%B6y-%C4%B0stanbul%2C_Turkey_-_panoramio.jpg",
-            caption: "Vapur Kadıköy'e Yanaşırken Solunuzda Yükselen Haydarpaşa Garı (1906–1908)"
+            caption: "Harem'e Yaklaşırken Güneyde Görünen Haydarpaşa Garı (1906–1908)"
           }
         ],
         identity: [
+          "<b>Sirkeci – Harem Arabalı Vapuru:</b> Tarihi Yarımada ile Üsküdar'ın Harem semti arasında araçları karşıya taşıyan feribot hattıdır; yolculuk ~20 dakika sürer. Vapur kalktıktan sonra genellikle araçtan inip yolcu salonuna ya da güverteye çıkılabilir.",
           "<b>Haydarpaşa Garı (1906–1908):</b> Padişah <b>II. Abdülhamid</b> döneminde İstanbul – Bağdat ve Hicaz Demiryolu hattının başlangıç istasyonu olarak Alman mimarlar <b>Otto Ritter ve Helmuth Cuno</b> tarafından inşa edilmiştir."
         ],
         highlights: [
-          "<b>1. Denizin İçindeki 1.100 Meşe Kazık:</b> Vapur Kadıköy İskelesi'ne yanaşırken solunuzda gördüğünüz devasa gar binası tamamen deniz dolgusunun üzerindedir; binanın altında denize çakılmış <b>her biri 21 metre uzunluğunda 1.100 adet su geçirmez meşe kazık</b> vardır!",
-          "<b>2. Selimiye Kışlası:</b> Haydarpaşa'nın hemen sol gerisindeki dört kuleli dev bina III. Selim ve II. Mahmud'un yaptırdığı Selimiye Kışlası'dır (1854 Kırım Savaşı'nda modern hemşireliğin kurucusu <b>Florence Nightingale</b> burada görev yapmıştır)."
+          "<b>1. Denizin İçindeki 1.100 Meşe Kazık:</b> Harem'e yaklaşırken güneyde gördüğünüz devasa gar binası tamamen deniz dolgusunun üzerindedir; binanın altında denize çakılmış <b>her biri 21 metre uzunluğunda 1.100 adet su geçirmez meşe kazık</b> vardır!",
+          "<b>2. Selimiye Kışlası:</b> Harem İskelesi'nin hemen güneyindeki dört kuleli dev bina III. Selim ve II. Mahmud'un yaptırdığı Selimiye Kışlası'dır (1854 Kırım Savaşı'nda modern hemşireliğin kurucusu <b>Florence Nightingale</b> burada görev yapmıştır)."
         ],
         anecdote: "💡 <b>Haydar Paşa Kimdir?</b> Semte adını veren Haydar Paşa, Kanuni ve II. Selim döneminde yaşamış, burada padişah için kavak korusu ve köşk hazırlamış Osmanlı veziridir."
       },
+
+      // ==================== 5. GÜN: 1 KASIM PAZAR ====================
       {
-        id: "s_4_7",
-        day: "4",
-        shortLabel: "4.7 Kadıköy & Moda",
-        title: "4.7. Kadıköy Çarşısı, Moda Sahil Parkı ve Tarihi Moda İskelesi",
-        time: "4. Gün • 16:00 – 18:00 [Opsiyonel]",
+        id: "s_5_1",
+        day: "5",
+        shortLabel: "5.1 Moda & Kadıköy",
+        title: "5.1. Moda Sahil Parkı, Tarihi Moda İskelesi ve Kadıköy Çarşısı",
+        time: "5. Gün • 09:30 – 12:00",
         images: [
           {
             local: "anlatim/gorseller/43_moda_iskelesi.jpg",
@@ -1979,84 +2058,12 @@
         ],
         anecdote: "💡 <b>Mimar Vedat Tek'in İmzası:</b> Moda İskelesi'ni tasarlayan Mimar Vedat Tek, aynı zamanda Sirkeci Büyük Postane binasının ve Ankara'daki II. TBMM binasının da mimarıdır."
       },
-
-      // ==================== 5. GÜN: 1 KASIM PAZAR ====================
-      {
-        id: "s_5_1",
-        day: "5",
-        shortLabel: "5.1 Mihrimah Sultan",
-        title: "5.1. Edirnekapı Mihrimah Sultan Camii & Kara Surları",
-        time: "5. Gün • 08:00 – 08:50",
-        images: [
-          {
-            local: "anlatim/gorseller/44_edirnekapi_mihrimah_sultan.jpg",
-            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Istanbul_-_Mesquita_de_Mihrimah.JPG/960px-Istanbul_-_Mesquita_de_Mihrimah.JPG",
-            caption: "Edirnekapı Mihrimah Sultan Camii (1562–1565) – 161 Pencereli 'Güneş' Camisi"
-          }
-        ],
-        identity: [
-          "<b>Kim Yaptırdı?</b> Kanuni Sultan Süleyman ve Hürrem Sultan'ın tek kızı <b>Mihrimah Sultan</b> adına <b>1562–1565</b> yıllarında <b>Mimar Sinan</b> tarafından, İstanbul'un en yüksek tepesi olan <b>6. Tepe (Edirnekapı)</b> üzerine inşa edilmiştir."
-        ],
-        highlights: [
-          "<b>1. 'Güneş ve Ay' (161 Pencere):</b> <i>Mihr-ü Mah</i> Farsça'da <b>'Güneş ve Ay'</b> demektir. Mimar Sinan güneşi simgelemek için caminin kubbe kemerlerini taşıyıcı duvar olmaktan çıkarıp <b>tam 161 pencere</b> açarak İstanbul'un en aydınlık, adeta ışıktan örülmüş camisini yaratmıştır.",
-          "<b>2. Neden Tek Minareli?</b> Padişah kızı (Sultan) camisi olmasına rağmen iki değil <b>tek ve çok ince bir minaresi</b> vardır."
-        ],
-        anecdote: "💡 <b>21 Mart Ekinoks Efsanesi:</b> Halk arasında Mimar Sinan'ın Üsküdar'daki iki minareli Mihrimah Sultan Camii ile Edirnekapı'daki bu camiyi, Mihrimah Sultan'ın doğum günü olan 21 Mart gece-gündüz eşitliğinde birinin minaresinin arkasından güneş batarken diğerinin arkasından ay doğacak şekilde hizaladığı efsanesi anlatılır."
-      },
       {
         id: "s_5_2",
         day: "5",
-        shortLabel: "5.2 Kariye Camii",
-        title: "5.2. Kariye Camii (Chora / Hora Manastırı)",
-        time: "5. Gün • 09:00 – 10:00",
-        images: [
-          {
-            local: "anlatim/gorseller/45_kariye_camii_mozaik_fresk.jpg",
-            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Chora_Church_2024.jpg/960px-Chora_Church_2024.jpg",
-            caption: "Kariye Camii (Chora) – Dünyanın En Sağlam Doğu Roma Mozaik ve Fresk Koleksiyonu (1315–1321)"
-          }
-        ],
-        identity: [
-          "<b>Anlamı:</b> <i>Chora (Hora)</i> Yunanca'da <b>'Taşra / Şehir Dışı'</b> demektir; çünkü ilk şapel 4. yüzyılda yapıldığında İmparator Konstantin'in eski surlarının dışında kalıyordu.",
-          "<b>Mozaik ve Freskleri Kim Yaptırdı?</b> Doğu Roma'nın en zengin devlet adamı, filozof ve Başbakan (Büyük Logothetes) <b>Theodoros Metokhites</b> tarafından <b>1315 – 1321</b> yılları arasında baştan sona altın mozaikler ve fresklerle donatılmıştır. 1511'de camiye çevrilirken mozaikler kırılmamış, üzerlerine sadece ince kireç badana sürüldüğü için günümüze <b>dünyanın en sağlam Doğu Roma mozaik ve fresk koleksiyonu</b> olarak ulaşmıştır!"
-        ],
-        highlights: [
-          "<b>1. Theodoros Metokhites'in Devasa Sarıklı İthaf Mozaiği (İç Narteks Kapı Üstü):</b> Ana ibadet alanına girilen kapının tam üstündeki mozaikte, kiliseyi yaptıran Theodoros Metokhites diz çökmüş halde Hz. İsa'ya Kariye'nin maketini sunarken görülür. Başındaki <b>devasa beyaz-altın çizgili kavuk/sarık</b> Doğu Roma devlet protokol başlığıdır.",
-          "<b>2. Meryem Ana ve Hz. İsa'nın Çocukluk Mozaikleri (Narteks Kubbeleri):</b> Dış ve iç koridorların tavanlarında Meryem Ana'nın ilk 7 adımını atışı, Hz. İsa'nın suyu şaraba çevirmesi ve Beytlehem nüfus sayımı sahneleri sinema şeridi gibi altın küplerle işlenmiştir.",
-          "<b>3. 'Anastasis' (Diriliş) Freski (Sağ Yan Şapel / Parekklesion):</b> Sağ koridordaki mezar şapelinin en uç yarım kubbesinde yer alan <b>Anastasis (Diriliş)</b> freski, dünya sanat tarihinde Rönesans'ın habercisi sayılan en ünlü duvar resmidir: Beyaz giysiler içindeki Hz. İsa, yeraltı dünyasının kapılarını kırıp sağ eliyle <b>Hz. Adem</b>'i, sol eliyle <b>Hz. Havva</b>'yı lahitlerinden çekip çıkarırken resmedilmiştir!"
-        ],
-        anecdote: "💡 <b>Theodoros Metokhites'in Sonu:</b> Bütün servetini Kariye'nin altın mozaiklerine harcayan Başbakan Metokhites, 1328'deki saray darbesinde mal varlığına el konularak sürgüne gönderilmiş ve ömrünün son iki yılını kendi yaptırdığı bu manastırda sade bir keşiş olarak tamamlayıp Parekklesion şapeline gömülmüştür."
-      },
-      {
-        id: "s_5_3",
-        day: "5",
-        shortLabel: "5.3 Yedikule Hisarı",
-        title: "5.3. Yedikule Hisarı ve Altın Kapı (Porta Aurea)",
-        time: "5. Gün • 10:15 – 11:15 [Opsiyonel]",
-        images: [
-          {
-            local: "anlatim/gorseller/46_yedikule_hisari_altin_kapi.jpg",
-            remote: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Istanbul_asv2021-11_img61_Yedikule.jpg/960px-Istanbul_asv2021-11_img61_Yedikule.jpg",
-            caption: "Yedikule Hisarı (1458) ve Bizans Zafer Takı Altın Kapı (Porta Aurea – MS 390)"
-          }
-        ],
-        identity: [
-          "<b>Altın Kapı (Porta Aurea – MS 390):</b> İmparator I. Theodosius tarafından yaptırılan mermer kaplı zafer takıdır. Bizans imparatorları savaştan zaferle döndüklerinde veya taç giydiklerinde şehre sadece bu <b>Altın Kapı</b>'dan girerdi.",
-          "<b>Fatih Sultan Mehmet'in Eklediği Hisar (1458):</b> Fatih fetihten 5 yıl sonra Altın Kapı'nın mevcut 4 Bizans kulesinin arkasına <b>3 büyük Osmanlı kulesi</b> daha ekleyerek <b>7 Kuleli</b> yıldız planlı bir iç kale (<b>Yedikule Hisarı</b>) oluşturmuştur."
-        ],
-        highlights: [
-          "<b>1. Osmanlı Devlet Hazinesi:</b> İlk dönemlerde Osmanlı'nın altın ihtiyat hazinesi bu kulelerde saklanmıştır.",
-          "<b>2. Yabancı Elçiler Hapishanesi ('Kitabeler Kulesi'):</b> Osmanlı Devleti bir Avrupa ülkesine savaş ilan ettiğinde, o ülkenin İstanbul'daki büyükelçisi savaş bitene kadar Yedikule'deki kulede hapsedilirdi (Duvarlarda Fransız, Venedik ve Rus elçilerinin kazıdığı Latince yazılar hâlâ durmaktadır).",
-          "<b>3. Sultan II. Osman (Genç Osman) Trajedisi (1622):</b> Osmanlı tarihinde yeniçeri isyanıyla tahttan indirilip katledilen ilk padişah olan 18 yaşındaki <b>Genç Osman</b>, Yedikule Hisarı'nda şehit edilmiştir."
-        ],
-        anecdote: "💡 <b>Mese Caddesi Başlangıcı:</b> Altın Kapı'dan başlayan tören yolu (Mese Caddesi), Cerrahpaşa – Aksaray – Çemberlitaş (Divanyolu) üzerinden doğrudan Ayasofya'nın önündeki Milion Taşı'na ulaşırdı."
-      },
-      {
-        id: "s_5_4",
-        day: "5",
-        shortLabel: "5.4 Kuzguncuk & Üryanizade",
-        title: "5.4. Fethi Paşa Korusu, Kuzguncuk İcadiye Caddesi ve Üryanizade Camii",
-        time: "5. Gün • 12:15 – 14:15",
+        shortLabel: "5.2 Kuzguncuk & Üryanizade",
+        title: "5.2. Fethi Paşa Korusu, Kuzguncuk İcadiye Caddesi ve Üryanizade Camii",
+        time: "5. Gün • 13:45 – 15:00",
         images: [
           {
             local: "anlatim/gorseller/47_kuzguncuk_icadiye_evleri.jpg",
@@ -2076,11 +2083,11 @@
         anecdote: "💡 <b>Kuzguncuk Camii ve Ermeni Kilisesi Anekdotu:</b> Yan yana duran Kuzguncuk Camii yapılırken Ermeni Kilisesi vakfı cami inşaatına bağışta bulunmuş, karşılığında cami yönetimi de kilisenin dış cephe boyasını üstlenmiştir."
       },
       {
-        id: "s_5_5",
+        id: "s_5_3",
         day: "5",
-        shortLabel: "5.5 Çengelköy Çınaraltı",
-        title: "5.5. Çengelköy Tarihi Çınaraltı ve İskelesi",
-        time: "5. Gün • 14:15 – 15:30 [Opsiyonel]",
+        shortLabel: "5.3 Çengelköy Çınaraltı",
+        title: "5.3. Çengelköy Tarihi Çınaraltı ve İskelesi",
+        time: "5. Gün • 15:00 – 15:45 [Opsiyonel]",
         images: [
           {
             local: "anlatim/gorseller/49_cengelkoy_tarihi_cinaralti.jpg",
@@ -2147,7 +2154,7 @@
 
       const allBtn = document.createElement('button');
       allBtn.className = 'g-tab-pill' + (activeGuideStop === 'all' ? ' active' : '');
-      allBtn.innerText = gday === 'all' ? `📋 Tüm 32 Durak` : `📋 Tüm ${gday}. Gün (${dayStops.length})`;
+      allBtn.innerText = gday === 'all' ? `📋 Tüm ${ALL_GUIDE_DATA.length} Durak` : `📋 Tüm ${gday}. Gün (${dayStops.length})`;
       allBtn.onclick = () => {
         activeGuideStop = 'all';
         renderGuideCards();
@@ -2224,6 +2231,7 @@
     }
 
     // Başlatma
+    document.querySelector('#guide-day-tabs [data-gday="all"]').innerText = `📚 Tümü (${ALL_GUIDE_DATA.length})`;
     updateView();
     fitCurrentDay();
   </script>
